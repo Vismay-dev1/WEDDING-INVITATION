@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajarul & Some Girl | Wedding Invitation</title>
+    <meta name="description" content="You are cordially invited to celebrate the union of Ajarul Asvad MK and Some Girl. Join us for a day filled with love and magic.">
+    
+    <!-- Preload Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" as="style">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css?v=5.0">
+    
+    <!-- AOS for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Intro Overlay -->
+    <div id="intro-overlay">
+        <div class="intro-content">
+            <h2 class="great-vibes gold-text">Ajarul & Some Girl</h2>
+            <div class="intro-line"></div>
+            <p>Our Forever Begins Today</p>
+            <button id="start-btn" class="btn-primary" style="margin-top: 30px;">Open Invitation</button>
+        </div>
+    </div>
+
+
+    <!-- Music Toggle -->
+    <button id="music-toggle" class="glass-card">
+        <span class="icon">🔊</span>
+    </button>
+    <audio id="bg-music" loop preload="auto">
+        <source src="saseendran-raga-valachi-nadaswaram-6_8-382924.mp3" type="audio/mpeg">
+    </audio>
+
+
+
+
+
+
+
+    <!-- Main Content -->
+    <div id="main-wrapper">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="parallax">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <p class="hero-subtitle" data-aos="fade-down">Together With Their Families</p>
+                <h1 class="hero-title" data-aos="zoom-in">
+                    <span class="name">Ajarul Asvad MK</span>
+                    <span class="and">&</span>
+                    <span class="name">Some Girl</span>
+                </h1>
+                <p class="hero-date" data-aos="fade-up">July 28, 2028 | Hajmus Auditorium, Taliparamba</p>
+                
+                <!-- Countdown -->
+                <div class="countdown-container glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <p>Mins</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <p>Secs</p>
+                    </div>
+                </div>
+                <p class="countdown-footer" data-aos="fade-up">Counting down to our forever ❤️</p>
+                
+                <a href="#invitation" class="scroll-indicator">
+                    <span>Scroll To Reveal</span>
+                    <div class="mouse"></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Digital Invitation Card -->
+        <section id="invitation">
+            <div class="container">
+                <div class="invitation-wrapper" data-aos="zoom-in">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <p id="img-error-msg" style="display: none; color: var(--maroon); text-align: center; padding: 20px; font-family: var(--sans-font);">
+                                ⚠️ Please save your image as <strong>invitation_card.jpg</strong> in this folder to display it here.
+                            </p>
+                            <img src="invitation_card.jpg" alt="Wedding Invitation" id="main-invitation-img" onerror="document.getElementById('main-invitation-img').style.display='none'; document.getElementById('img-error-msg').style.display='block';">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Story / Timeline -->
+        <section id="story">
+            <div class="container">
+                <h2 class="section-title gold-text" data-aos="fade-up">Our Love Story</h2>
+                <div class="timeline" id="timeline">
+                    <div class="timeline-progress" id="timeline-progress"></div>
+
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-content glass-card">
+                            <h3>How We Met</h3>
+                            <p>A chance encounter that changed our lives forever. It started with a simple hello and turned into a lifetime of memories.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content glass-card">
+                            <h3>The First Date</h3>
+                            <p>Coffee, laughter, and a connection that felt like we had known each other for ages.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-content glass-card">
+                            <h3>The Proposal</h3>
+                            <p>Under the starlit sky, he asked, and she said yes! A moment frozen in time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Schedule -->
+        <section id="events" class="bg-alt">
+            <div class="container">
+                <h2 class="section-title gold-text" data-aos="fade-up">Wedding Events</h2>
+                <div class="event-grid">
+                    <!-- Mehendi Flip Card -->
+                    <div class="flip-card" data-aos="fade-up">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="event-img-container">
+                                    <img src="mehandi.jpg" alt="Mehendi Ceremony">
+                                </div>
+                                <div class="event-info-front">
+                                    <h3>Mehendi</h3>
+                                    <span class="tap-hint">View Details</span>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="circle-decor"></div>
+                                <div class="circle-decor" id="circle-bottom"></div>
+                                <div class="back-content">
+                                    <svg viewBox="0 0 50 50" height="40" width="40" fill="var(--gold)"><path d="M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z"></path></svg>
+                                    <h3>Mehendi</h3>
+                                    <div class="detail-item">
+                                        <span class="label">Time</span>
+                                        <span class="value">July 26, 2028 | 4:00 PM</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Location</span>
+                                        <span class="value">Groom's Residence</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Haldi Flip Card -->
+                    <div class="flip-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="event-img-container">
+                                    <img src="haldi.jpg" alt="Haldi Ceremony">
+                                </div>
+                                <div class="event-info-front">
+                                    <h3>Haldi</h3>
+                                    <span class="tap-hint">View Details</span>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="circle-decor"></div>
+                                <div class="circle-decor" id="circle-bottom"></div>
+                                <div class="back-content">
+                                    <svg viewBox="0 0 50 50" height="40" width="40" fill="var(--gold)"><path d="M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z"></path></svg>
+                                    <h3>Haldi</h3>
+                                    <div class="detail-item">
+                                        <span class="label">Time</span>
+                                        <span class="value">July 27, 2028 | 10:00 AM</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Location</span>
+                                        <span class="value">Bride's Residence</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wedding Flip Card -->
+                    <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="event-img-container">
+                                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600" alt="Wedding Ceremony">
+                                </div>
+                                <div class="event-info-front">
+                                    <h3>The Wedding</h3>
+                                    <span class="tap-hint">View Details</span>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="circle-decor"></div>
+                                <div class="circle-decor" id="circle-bottom"></div>
+                                <div class="back-content">
+                                    <svg viewBox="0 0 50 50" height="40" width="40" fill="var(--gold)"><path d="M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z"></path></svg>
+                                    <h3>Wedding</h3>
+                                    <div class="detail-item">
+                                        <span class="label">Time</span>
+                                        <span class="value">July 28, 2028 | 8:00 AM</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Location</span>
+                                        <span class="value">Hajmus Auditorium</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section id="rsvp">
+            <div class="container">
+                <div class="rsvp-container glass-card" data-aos="zoom-in">
+                    <div class="rsvp-decor-top">❦</div>
+                    <h2 class="great-vibes gold-text">Will you attend?</h2>
+                    <p class="rsvp-subtitle">Your presence would mean the world to us!</p>
+                    
+                    <form id="rsvp-form">
+                        <div class="input-group">
+                            <input type="text" placeholder="Your Name" required>
+                            <span class="input-line"></span>
+                        </div>
+                        
+                        <div class="rsvp-options">
+                            <label class="radio-card">
+                                <input type="radio" name="attendance" value="yes" required>
+                                <div class="card-inner-box">
+                                    <span class="option-icon">❤️</span>
+                                    <span class="option-text">Yes, I'll be there</span>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="attendance" value="no">
+                                <div class="card-inner-box">
+                                    <span class="option-icon">😔</span>
+                                    <span class="option-text">Sorry, I can't attend</span>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary ripple-btn">
+                            <span>Send Wishes</span>
+                        </button>
+                    </form>
+                    
+                    <div id="rsvp-message" class="hidden">
+                        <div class="success-icon">✨</div>
+                        <h3 class="great-vibes gold-text">Thank You!</h3>
+                        <p id="msg-text"></p>
+                    </div>
+                    <div class="rsvp-decor-bottom">❦</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venue Section -->
+        <section id="venue">
+            <div class="container">
+                <h2 class="section-title gold-text" data-aos="fade-up">The Venue</h2>
+                <div class="venue-wrapper glass-card" data-aos="fade-up">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.138760601332!2d75.3854157!3d12.0339999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba43e336e746d87%3A0xc68d4d1421f2d59!2sHajmus%20Auditorium!5e0!3m2!1sen!2sin!4v1715756000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="venue-info">
+                        <h3>Hajmus Auditorium</h3>
+                        <p>7th Mile, Taliparamba, Kerala, India</p>
+                        <a href="https://maps.app.goo.gl/9Z4Xq" target="_blank" class="btn-primary">Open in Maps</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <h2 class="great-vibes gold-text">Ajarul & Some Girl</h2>
+                <p>Thank you for being a part of our journey.</p>
+                <div class="social-links">
+                    <a href="#">#AjarulWedsGirl</a>
+                </div>
+                <p class="copyright">&copy; 2028 | Handcrafted with ❤️</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js?v=3.0"></script>
+</body>
+</html>

@@ -1,0 +1,958 @@
+:root {
+    --primary-bg: #0F0E0D; /* Deep Midnight */
+    --secondary-bg: #1A1816; /* Dark Charcoal */
+    --card-bg: #1F1C1A;
+    --maroon: #A91D1D; /* Brighter Maroon for dark mode */
+    --deep-maroon: #7D0A0A;
+    --accent-green: #2E5A1C; 
+    --gold: #D4AF37;
+    --gold-light: #F3E5AB;
+    --gold-gradient: linear-gradient(135deg, #D4AF37, #F3E5AB, #AA7C11);
+    --text-main: #FBF8F1; /* Off-white text */
+    --text-muted: #A39D94;
+    --white: #ffffff;
+    --glass-bg: rgba(31, 28, 26, 0.7);
+    --glass-border: rgba(212, 175, 55, 0.2);
+    --shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.5);
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --serif-font: 'Playfair Display', serif;
+    --sans-font: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--sans-font);
+    background-color: var(--primary-bg);
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--serif-font);
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+/* Glassmorphism Utility */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Gold Text Utility */
+.gold-text {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 15px 40px;
+    background: var(--gold-gradient);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-family: var(--sans-font);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.5);
+}
+
+/* Intro Overlay */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0F0E0D 0%, #1A1816 50%, #0F0E0D 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1.5s ease-out, visibility 1.5s;
+}
+
+#intro-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(125, 10, 10, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+#intro-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.intro-content h2 {
+    font-size: clamp(3rem, 10vw, 5rem);
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s forwards 0.5s;
+    font-family: 'Great Vibes', cursive;
+}
+
+.intro-line {
+    width: 0;
+    height: 2px;
+    background: var(--gold-gradient);
+    margin: 0 auto 20px;
+    animation: lineGrow 1.5s forwards 1s;
+}
+
+.intro-content p {
+    font-family: var(--serif-font);
+    font-style: italic;
+    letter-spacing: 3px;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards 1.5s;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineGrow {
+    to { width: 150px; }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Music Toggle */
+#music-toggle {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(5px);
+}
+
+/* ===============================
+   HERO SECTION - Kerala Traditional
+   =============================== */
+#hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('hero.jpg') center/cover no-repeat fixed;
+    color: var(--white);
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(27, 94, 32, 0.35) 0%,
+        rgba(125, 10, 10, 0.25) 40%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hero-title .name {
+    display: block;
+}
+
+.hero-title .and {
+    font-family: 'Great Vibes', cursive;
+    font-size: 0.7em;
+    display: block;
+    margin: 10px 0;
+}
+
+.hero-date {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+/* ===============================
+   COUNTDOWN - Traditional Border
+   =============================== */
+.countdown-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    border: 2px solid var(--gold);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.countdown-item span {
+    font-size: 2.5rem;
+    font-family: var(--serif-font);
+    font-weight: 700;
+    display: block;
+}
+
+.countdown-item p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.countdown-footer {
+    font-family: var(--serif-font);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid var(--white);
+    border-radius: 20px;
+    position: relative;
+}
+
+.mouse::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 4px;
+    height: 8px;
+    background: var(--white);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    animation: scrollMouse 1.5s infinite;
+}
+
+@keyframes scrollMouse {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    100% { transform: translate(-50%, 15px); opacity: 0; }
+}
+
+/* ===============================
+   SECTION TITLES - Traditional
+   =============================== */
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: var(--maroon);
+    position: relative;
+}
+
+.section-title::after {
+    content: '✦';
+    display: block;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-top: 15px;
+    letter-spacing: 10px;
+}
+
+/* ===============================
+   INVITATION CARD
+   =============================== */
+#invitation {
+    background-color: var(--secondary-bg);
+}
+
+.invitation-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    transform: scale(0.9) rotateX(15deg);
+    opacity: 0;
+}
+
+.card-inner.opened {
+    transform: scale(1) rotateX(0deg);
+    opacity: 1;
+}
+
+.card-front {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+#main-invitation-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+/* ===============================
+   FIREFLIES
+   =============================== */
+.firefly {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(1px);
+    box-shadow: 0 0 10px 2px rgba(197, 160, 89, 0.8);
+    opacity: 0;
+}
+
+@keyframes fly {
+    0% { transform: translate(0, 0); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translate(var(--x), var(--y)); opacity: 0; }
+}
+
+/* ===============================
+   RSVP MESSAGE
+   =============================== */
+#rsvp-message {
+    padding: 40px;
+    animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ===============================
+   TIMELINE - Traditional Kerala
+   =============================== */
+#story {
+    background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-bg));
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--maroon), var(--gold));
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 0;
+    background: var(--gold);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    z-index: 0;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.timeline-item {
+    margin-bottom: 80px;
+    width: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: 50%;
+    padding-left: 50px;
+}
+
+.timeline-item:nth-child(odd) {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.timeline-item::after {
+    content: '🪔';
+    position: absolute;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd)::after { right: -15px; }
+.timeline-item:nth-child(even)::after { left: -15px; }
+
+.timeline-content {
+    padding: 40px;
+    transition: var(--transition-smooth);
+    border-left: 3px solid var(--gold);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.timeline-content h3 {
+    color: var(--maroon);
+    margin-bottom: 10px;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    background: #252220;
+}
+
+/* ===============================
+   EVENT CARDS - Traditional Kerala
+   =============================== */
+.bg-alt {
+    background: var(--secondary-bg);
+}
+/* ===============================
+   INTERACTIVE EVENT FLIP-CARDS
+   =============================== */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 280px;
+    height: 400px;
+    perspective: 1000px;
+    font-family: var(--sans-font);
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+/* Front Style - Seen First */
+.flip-card-front {
+    background-color: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-card-front .event-img-container {
+    height: 70%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.flip-card:hover .flip-card-front img {
+    transform: scale(1.1);
+}
+
+.event-info-front {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+}
+
+.event-info-front h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.event-info-front .tap-hint {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+/* Back Style - Revealed on Hover */
+.flip-card-back {
+    background-color: #151515;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-back::before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 160px;
+    height: 160%;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--maroon), var(--gold), transparent);
+    animation: rotation_481 5000ms infinite linear;
+}
+
+.back-content {
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    background-color: #151515;
+    border-radius: 18px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 20px;
+    z-index: 2;
+}
+
+.back-content h3 {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.back-content .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.back-content .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+.back-content .value {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+@keyframes rotation_481 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+.circle-decor {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    position: absolute;
+    filter: blur(30px);
+    animation: floating 2600ms infinite linear;
+    opacity: 0.3;
+}
+
+#circle-bottom {
+    background-color: var(--maroon);
+    left: -20px;
+    bottom: -20px;
+    width: 150px;
+    height: 150px;
+    animation-delay: -800ms;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(15px); }
+    100% { transform: translateY(0px); }
+}
+
+
+/* ===============================
+   RSVP FORM
+   =============================== */
+.rsvp-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    background: var(--glass-bg);
+}
+
+.rsvp-decor-top, .rsvp-decor-bottom {
+    font-size: 2rem;
+    color: var(--gold);
+    margin: 10px 0;
+    opacity: 0.6;
+}
+
+.rsvp-subtitle {
+    font-family: var(--serif-font);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.input-group {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto 30px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--glass-border);
+    font-family: var(--sans-font);
+    font-size: 1.1rem;
+    outline: none;
+    transition: var(--transition-smooth);
+    color: var(--text-main);
+}
+
+.input-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gold-gradient);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+}
+
+.input-group input:focus + .input-line {
+    width: 100%;
+}
+
+.rsvp-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.radio-card {
+    position: relative;
+    height: 120px;
+}
+
+.card-inner-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    border: 2px solid var(--glass-border);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.4);
+    transition: var(--transition-smooth);
+}
+
+.option-icon {
+    font-size: 1.8rem;
+    transition: var(--transition-smooth);
+}
+
+.radio-card input:checked + .card-inner-box {
+    background: #2A2725;
+    border-color: var(--gold);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+    transform: translateY(-5px);
+}
+
+.radio-card input:checked + .card-inner-box .option-icon {
+    transform: scale(1.3);
+}
+
+.ripple-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.success-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+#rsvp-message {
+    padding: 20px;
+}
+
+
+/* ===============================
+   VENUE
+   =============================== */
+.venue-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.map-container {
+    height: 100%;
+}
+
+.venue-info {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+}
+
+.venue-info h3 {
+    color: var(--maroon);
+}
+
+/* ===============================
+   FOOTER - Traditional
+   =============================== */
+footer {
+    padding: 100px 0;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--secondary-bg), var(--primary-bg));
+    border-top: 2px solid var(--gold);
+}
+
+.great-vibes {
+    font-family: 'Great Vibes', cursive;
+}
+
+.hidden { display: none; }
+
+/* ===============================
+   RESPONSIVE REFINEMENTS
+   =============================== */
+@media (max-width: 1024px) {
+    .section-title { font-size: 2.8rem; }
+    .hero-title { font-size: 4rem; }
+}
+
+@media (max-width: 768px) {
+    section { padding: 80px 0; overflow: hidden; }
+    .container { padding: 0 20px; }
+    
+    /* Hero Adjustments */
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle { letter-spacing: 3px; font-size: 0.9rem; }
+    .hero-date { font-size: 1.1rem; }
+    
+    .countdown-container {
+        padding: 20px 10px;
+        gap: 10px;
+    }
+    .countdown-item span { font-size: 1.5rem; }
+    .countdown-item p { font-size: 0.7rem; }
+    
+    /* Timeline Mobile View */
+    .timeline::before { left: 30px; }
+    .timeline-item { 
+        width: 100%; 
+        padding-left: 60px !important; 
+        text-align: left !important; 
+        margin-bottom: 50px; 
+    }
+    .timeline-item:nth-child(even) { margin-left: 0; }
+    .timeline-item::after { left: 15px !important; top: 15px; }
+    .timeline-content { padding: 25px; }
+    
+    /* Invitation Card */
+    .card-front { min-height: 400px; }
+    
+    /* Venue & Footer */
+    .venue-wrapper { grid-template-columns: 1fr; }
+    .map-container { height: 300px; }
+    .venue-info { padding: 40px 20px; }
+    
+    footer { padding: 60px 0; }
+}
+
+@media (max-width: 480px) {
+    section { padding: 60px 0; }
+    
+    .hero-title { font-size: 2.2rem; }
+    .hero-date { font-size: 0.9rem; }
+    
+    .countdown-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .section-title { font-size: 2.2rem; margin-bottom: 30px; }
+    
+    .rsvp-options { grid-template-columns: 1fr; }
+    .radio-card { height: 100px; }
+    
+    #music-toggle { top: 20px; right: 20px; width: 45px; height: 45px; }
+    
+    .btn-primary { width: 100%; padding: 15px; letter-spacing: 1px; }
+    
+    .event-img-wrapper { width: 110px; height: 110px; }
+}
+
+/* Fix for horizontal scroll on some mobile browsers */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
