@@ -190,3 +190,14 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+// ── Tap-to-Flip for Mobile Touch Devices ──
+const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+
+document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', () => {
+        if (isTouchDevice()) {
+            card.classList.toggle('tapped');
+        }
+    });
+});

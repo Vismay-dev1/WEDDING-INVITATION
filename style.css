@@ -130,12 +130,15 @@ section {
 }
 
 .intro-content h2 {
-    font-size: clamp(3rem, 10vw, 5rem);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     margin-bottom: 20px;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1.5s forwards 0.5s;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
 }
 
 .intro-line {
@@ -880,79 +883,187 @@ footer {
 .hidden { display: none; }
 
 /* ===============================
-   RESPONSIVE REFINEMENTS
+   RESPONSIVE — FULL MOBILE OVERHAUL
    =============================== */
+
+/* ── Tablet (≤ 1024px) ── */
 @media (max-width: 1024px) {
-    .section-title { font-size: 2.8rem; }
+    .section-title { font-size: 2.6rem; }
     .hero-title { font-size: 4rem; }
+    .venue-wrapper { grid-template-columns: 1.2fr 1fr; }
 }
 
+/* ── Mobile Large (≤ 768px) ── */
 @media (max-width: 768px) {
-    section { padding: 80px 0; overflow: hidden; }
-    .container { padding: 0 20px; }
-    
-    /* Hero Adjustments */
-    .hero-title { font-size: 3rem; }
-    .hero-subtitle { letter-spacing: 3px; font-size: 0.9rem; }
-    .hero-date { font-size: 1.1rem; }
-    
-    .countdown-container {
-        padding: 20px 10px;
-        gap: 10px;
+
+    /* --- Global --- */
+    section { padding: 70px 0; overflow: hidden; }
+    .container { padding: 0 18px; }
+    .section-title { font-size: 2.2rem; margin-bottom: 40px; }
+
+    /* --- Intro Overlay --- */
+    .intro-content h2 {
+        font-size: clamp(1.8rem, 9vw, 3rem);
+        letter-spacing: 3px;
     }
-    .countdown-item span { font-size: 1.5rem; }
-    .countdown-item p { font-size: 0.7rem; }
-    
-    /* Timeline Mobile View */
-    .timeline::before { left: 30px; }
-    .timeline-item { 
-        width: 100%; 
-        padding-left: 60px !important; 
-        text-align: left !important; 
-        margin-bottom: 50px; 
+    .intro-content p {
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+    }
+    #start-btn { padding: 12px 30px; font-size: 0.85rem; }
+
+    /* --- Music Toggle --- */
+    #music-toggle { top: 15px; right: 15px; width: 44px; height: 44px; font-size: 1rem; }
+
+    /* --- Hero --- */
+    #hero { background-attachment: scroll; } /* Fixes iOS parallax bug */
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        line-height: 1.2;
+    }
+    .hero-subtitle { font-size: 0.8rem; letter-spacing: 3px; }
+    .hero-date { font-size: 0.95rem; letter-spacing: 1px; margin-bottom: 25px; }
+
+    /* --- Countdown --- */
+    .countdown-container {
+        padding: 20px 12px;
+        gap: 8px;
+        max-width: 100%;
+    }
+    .countdown-item span { font-size: 1.8rem; }
+    .countdown-item p { font-size: 0.65rem; letter-spacing: 1px; }
+    .countdown-footer { font-size: 0.95rem; }
+
+    /* --- Invitation Card --- */
+    .invitation-wrapper { max-width: 100%; padding: 0 10px; }
+    .card-front { min-height: 300px; border-radius: 6px; }
+
+    /* --- Timeline --- */
+    .timeline { padding: 20px 0; }
+    .timeline::before { left: 20px; width: 2px; }
+    .timeline-progress { left: 20px; width: 2px; }
+    .timeline-item {
+        width: 100%;
+        padding-left: 55px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        margin-bottom: 40px;
     }
     .timeline-item:nth-child(even) { margin-left: 0; }
-    .timeline-item::after { left: 15px !important; top: 15px; }
-    .timeline-content { padding: 25px; }
-    
-    /* Invitation Card */
-    .card-front { min-height: 400px; }
-    
-    /* Venue & Footer */
-    .venue-wrapper { grid-template-columns: 1fr; }
-    .map-container { height: 300px; }
-    .venue-info { padding: 40px 20px; }
-    
+    .timeline-item::after { left: 7px !important; right: auto !important; top: 12px; font-size: 14px; }
+    .timeline-content { padding: 20px; border-left: 2px solid var(--gold); }
+    .timeline-content h3 { font-size: 1.2rem; }
+
+    /* --- Event Flip Cards --- */
+    .event-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        justify-items: center;
+    }
+    .flip-card { width: min(320px, 90vw); height: 380px; }
+
+    /* Touch support: tap to flip on mobile */
+    .flip-card.tapped .flip-card-inner { transform: rotateY(180deg); }
+
+    /* --- RSVP --- */
+    .rsvp-container { padding: 40px 20px; border-radius: 16px; }
+    .rsvp-container h2 { font-size: 2.2rem; }
+    .rsvp-subtitle { font-size: 0.95rem; }
+    .rsvp-options { grid-template-columns: 1fr; gap: 15px; margin-bottom: 30px; }
+    .radio-card { height: 90px; }
+    .card-inner-box { border-radius: 12px; }
+    .btn-primary { width: 100%; padding: 14px; letter-spacing: 1px; font-size: 0.9rem; }
+    .input-group { max-width: 100%; }
+    .input-group input { font-size: 1rem; }
+
+    /* --- Venue --- */
+    .venue-wrapper { grid-template-columns: 1fr; min-height: auto; }
+    .map-container { height: 280px; }
+    .venue-info { padding: 35px 20px; gap: 18px; }
+    .venue-info h3 { font-size: 1.4rem; }
+
+    /* --- Footer --- */
     footer { padding: 60px 0; }
+    footer h2 { font-size: 2.5rem; }
+    footer p { font-size: 0.9rem; }
+    .social-links a { font-size: 0.85rem; }
 }
 
+/* ── Mobile Small (≤ 480px) ── */
 @media (max-width: 480px) {
-    section { padding: 60px 0; }
-    
-    .hero-title { font-size: 2.2rem; }
-    .hero-date { font-size: 0.9rem; }
-    
+    section { padding: 55px 0; }
+    .container { padding: 0 15px; }
+
+    /* --- Intro --- */
+    .intro-content h2 {
+        font-size: clamp(1.5rem, 8vw, 2.2rem);
+        letter-spacing: 2px;
+    }
+    .intro-line { max-width: 100px; }
+
+    /* --- Hero --- */
+    .hero-title { font-size: clamp(1.7rem, 7vw, 2.5rem); }
+    .hero-date { font-size: 0.8rem; }
+    .hero-subtitle { font-size: 0.72rem; letter-spacing: 2px; }
+
+    /* --- Countdown --- */
     .countdown-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 12px;
+        padding: 18px 10px;
     }
-    
-    .section-title { font-size: 2.2rem; margin-bottom: 30px; }
-    
-    .rsvp-options { grid-template-columns: 1fr; }
-    .radio-card { height: 100px; }
-    
-    #music-toggle { top: 20px; right: 20px; width: 45px; height: 45px; }
-    
-    .btn-primary { width: 100%; padding: 15px; letter-spacing: 1px; }
-    
-    .event-img-wrapper { width: 110px; height: 110px; }
+    .countdown-item span { font-size: 1.6rem; }
+
+    /* --- Section Title --- */
+    .section-title { font-size: 1.9rem; margin-bottom: 30px; }
+
+    /* --- Flip Cards --- */
+    .flip-card { width: min(290px, 88vw); height: 360px; }
+    .back-content { padding: 20px; gap: 14px; }
+    .back-content h3 { font-size: 1.5rem; }
+    .back-content .value { font-size: 0.9rem; }
+
+    /* --- RSVP --- */
+    .rsvp-container { padding: 30px 15px; }
+    .rsvp-container h2 { font-size: 1.9rem; }
+    .radio-card { height: 80px; }
+    .option-icon { font-size: 1.4rem; }
+    .option-text { font-size: 0.85rem; }
+
+    /* --- Venue --- */
+    .map-container { height: 240px; }
+    .venue-info { padding: 25px 15px; }
+
+    /* --- Footer --- */
+    footer { padding: 50px 0; }
+    footer h2 { font-size: 2rem; }
 }
 
-/* Fix for horizontal scroll on some mobile browsers */
+/* ── Very Small (≤ 360px) ── */
+@media (max-width: 360px) {
+    .hero-title { font-size: 1.5rem; }
+    .intro-content h2 { font-size: 1.3rem; letter-spacing: 1px; }
+    .countdown-item span { font-size: 1.3rem; }
+    .flip-card { width: 95vw; height: 340px; }
+    .rsvp-container { padding: 25px 12px; }
+}
+
+/* Touch flip support */
+.flip-card.tapped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Intro line responsive max width */
+@media (max-width: 768px) {
+    .intro-line {
+        width: 120px;
+    }
+}
+
 html, body {
     width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
+
