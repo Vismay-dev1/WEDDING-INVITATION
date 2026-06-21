@@ -2,8 +2,7 @@
 AOS.init({
     duration: 800,
     once: true,
-    offset: 50,
-    disable: 'mobile' // Disable on mobile for performance if needed, but keeping it for now with low offset
+    offset: 50
 });
 
 // Intro Overlay Logic - Snappier
@@ -12,17 +11,11 @@ const introOverlay = document.getElementById('intro-overlay');
 
 startBtn.addEventListener('click', () => {
     // Unlock and play music
-    bgMusic.play().then(() => {
-        isPlaying = true;
-        musicToggle.innerHTML = '<span class="icon">🔊</span>';
-    }).catch(e => {
+    bgMusic.play().catch(e => {
         console.log("Initial audio blocked, will try on next click");
         // Add a global click listener as a fallback
         document.addEventListener('click', function secondTry() {
-            bgMusic.play().then(() => {
-                isPlaying = true;
-                musicToggle.innerHTML = '<span class="icon">🔊</span>';
-            });
+            bgMusic.play();
             document.removeEventListener('click', secondTry);
         }, { once: true });
     });
@@ -68,18 +61,23 @@ updateCountdown();
 // Background Music
 const musicToggle = document.getElementById('music-toggle');
 const bgMusic = document.getElementById('bg-music');
-let isPlaying = false;
+
+const updateMusicToggleIcon = () => {
+    musicToggle.innerHTML = bgMusic.paused
+        ? '<span class="icon">🔇</span>'
+        : '<span class="icon">🔊</span>';
+};
 
 musicToggle.addEventListener('click', () => {
-    if (isPlaying) {
-        bgMusic.pause();
-        musicToggle.innerHTML = '<span class="icon">🔇</span>';
+    if (bgMusic.paused) {
+        bgMusic.play().catch(e => console.log("Playback blocked"));
     } else {
-        bgMusic.play().catch(e => console.log("Auto-play blocked"));
-        musicToggle.innerHTML = '<span class="icon">🔊</span>';
+        bgMusic.pause();
     }
-    isPlaying = !isPlaying;
 });
+
+bgMusic.addEventListener('play', updateMusicToggleIcon);
+bgMusic.addEventListener('pause', updateMusicToggleIcon);
 
 // RSVP Form Submission
 const rsvpForm = document.getElementById('rsvp-form');
@@ -110,15 +108,6 @@ if (rsvpForm) {
     });
 }
 
-function triggerConfetti() {
-    confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#c5a059', '#f2d2d2', '#ffffff']
-    });
-}
-
 // Fireflies Effect - Optimized for mobile
 function createFireflies() {
     const isMobile = window.innerWidth < 768;
@@ -134,7 +123,11 @@ function createFireflies() {
         const moveX = (Math.random() - 0.5) * (isMobile ? 300 : 600);
         const moveY = (Math.random() - 0.5) * (isMobile ? 300 : 600);
         const duration = 15 + Math.random() * 20;
+        const size = 2 + Math.random() * 3;
         
+        firefly.style.width = `${size}px`;
+        firefly.style.height = `${size}px`;
+        firefly.style.opacity = 0.2 + Math.random() * 0.6;
         firefly.style.left = `${startX}px`;
         firefly.style.top = `${startY}px`;
         firefly.style.setProperty('--x', `${moveX}px`);
