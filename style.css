@@ -123,6 +123,12 @@ section {
     visibility: hidden;
 }
 
+#intro-overlay.fade-out .intro-content {
+    transform: scale(1.1);
+    filter: blur(10px);
+    transition: transform 1.5s ease-out, filter 1.5s ease-out;
+}
+
 .intro-content {
     text-align: center;
     position: relative;
@@ -519,6 +525,8 @@ section {
 .timeline-content:hover {
     transform: translateY(-5px);
     background: #252220;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    border-color: var(--gold);
 }
 
 /* ===============================
@@ -796,7 +804,9 @@ section {
     height: 100%;
     border: 2px solid var(--glass-border);
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: var(--transition-smooth);
 }
 
