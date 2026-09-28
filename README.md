@@ -16,12 +16,13 @@ websites — reimagined around a traditional Indian Hindu wedding, with the orig
     magnetic 3D tilt cards, scroll-progress bar, section dot-navigation.
   - Flip-tick countdown to the muhurtham, infinite gold marquee ribbon.
   - `prefers-reduced-motion` fully respected.
-- **Hindu wedding programme** — Ganesh Pooja, Mehendi, Haldi, Sangeet Sandhya,
-  the Wedding Muhurtham and Grand Reception, each with time, venue and dress code.
-- **Muhurtham rituals timeline** — Kashi Yatra → Kanyadaanam → Mangalya Dharana →
-  Saptapadi → Aashirvadam, on a deep-maroon gold stage.
-- **Sanskrit invocation** (॥ श्री गणेशाय नमः ॥ and the Sarve Bhavantu Sukhinah shloka)
-  set in Tiro Devanagari.
+- **Kerala Hindu wedding programme** — Ganesh Pooja, Mylanchi, Manjal-kuli, Sangeetham,
+  the Wedding Muhurtham (Thalikettu) and Grand Reception with sadya — each with time,
+  venue and dress code.
+- **Muhurtham rituals timeline** — Nilavilakku & Ganapathi Pooja → Kanyadanam →
+  Thalikettu → Saptapadi & Homa → Nalangu, on a deep-maroon gold stage.
+- **Malayalam invocation** (॥ ശ്രീ ഗണേശായ നമഃ ॥ and the Sarve Bhavantu Sukhinah shloka)
+  set in Noto Serif Malayalam.
 - **Digital invitation card** in a gold-arch frame with 3D tilt and tap-to-enlarge lightbox.
 - **Sticky two-column love-story timeline** with a scroll-drawn gold line.
 - **Gallery** — masonry grid with lightbox (keyboard: ←/→/Esc).

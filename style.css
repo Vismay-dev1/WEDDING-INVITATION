@@ -24,7 +24,7 @@
     --caps:  'Marcellus', serif;
     --script:'Great Vibes', cursive;
     --sans:  'Jost', 'Segoe UI', sans-serif;
-    --deva:  'Tiro Devanagari Sanskrit', serif;
+    --deva:  'Noto Serif Malayalam', serif;
     --ease:  cubic-bezier(.22, 1, .36, 1);
     --ease-io: cubic-bezier(.65, 0, .35, 1);
     --shadow-card: 0 24px 60px -18px rgba(59, 10, 30, .35);
@@ -362,7 +362,7 @@ html.has-cursor #cursor-dot, html.has-cursor #cursor-ring { opacity: 1; }
 
 .hero-content { position: relative; z-index: 3; padding: 0 20px; }
 
-.hero-eyebrow { font-family: var(--caps); letter-spacing: .34em; text-transform: uppercase; font-size: clamp(.66rem, 1.7vw, .84rem); color: var(--gold-2); margin-bottom: 26px; }
+.hero-eyebrow { font-family: var(--caps), var(--deva); letter-spacing: .3em; text-transform: uppercase; font-size: clamp(.66rem, 1.7vw, .84rem); color: var(--gold-2); margin-bottom: 26px; }
 
 .hero-names { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .hero-name {
@@ -422,7 +422,7 @@ html.has-cursor #cursor-dot, html.has-cursor #cursor-ring { opacity: 1; }
 .marquee { overflow: hidden; background: var(--maroon); border-block: 1px solid var(--gold); padding: 13px 0; position: relative; z-index: 4; }
 .marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
 .marquee-track span {
-    font-family: var(--caps); letter-spacing: .3em; text-transform: uppercase;
+    font-family: var(--caps), var(--deva); letter-spacing: .26em; text-transform: uppercase;
     font-size: .78rem; color: var(--gold-2); white-space: nowrap;
 }
 @keyframes marquee { to { transform: translateX(-50%); } }
@@ -569,6 +569,7 @@ html.has-cursor #cursor-dot, html.has-cursor #cursor-ring { opacity: 1; }
 .muhurtham-mandala { position: absolute; right: -160px; top: 50%; translate: 0 -50%; width: 560px; height: 560px; color: rgba(228,200,120,.1); animation: spin 100s linear infinite reverse; }
 .muhurtham-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(44px, 6vw, 90px); align-items: center; position: relative; }
 .muhurtham-lede { font-family: var(--serif); font-style: italic; color: rgba(250,243,231,.75); font-size: clamp(1rem, 2.1vw, 1.25rem); text-align: left; margin-top: 6px; }
+.muhurtham-malayalam { font-family: var(--deva); color: rgba(228,200,120,.85); font-size: 1.05rem; letter-spacing: .12em; margin-top: 14px; text-align: left; }
 .muhurtham-plate {
     margin-top: 36px; display: inline-flex; align-items: center; gap: 18px;
     border: 1px solid rgba(228,200,120,.5); border-radius: 10px;
