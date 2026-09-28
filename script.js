@@ -15,11 +15,17 @@ const WEDDING_TS = new Date('2028-07-28T08:00:00+05:30').getTime();
 /* apply data-delay → --d custom prop */
 $$('[data-delay]').forEach(el => el.style.setProperty('--d', el.dataset.delay + 'ms'));
 
-/* ─────────── split-text (letter stagger) ─────────── */
+/* ─────────── split-text (letter stagger, grapheme-safe for Malayalam) ─────────── */
+const GRAPHEMES = (typeof Intl !== 'undefined' && Intl.Segmenter)
+    ? new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+    : null;
 $$('[data-split]').forEach(el => {
     const text = el.textContent;
     el.textContent = '';
-    [...text].forEach((ch, i) => {
+    const parts = GRAPHEMES
+        ? [...GRAPHEMES.segment(text)].map(s => s.segment)
+        : [...text];
+    parts.forEach((ch, i) => {
         const s = document.createElement('span');
         s.className = 'ch';
         s.style.setProperty('--i', i);

@@ -82,7 +82,7 @@ section { scroll-margin-top: 20px; }
 .kicker.gold { color: var(--gold-2); }
 
 .sec-title {
-    font-family: var(--serif);
+    font-family: var(--serif), var(--deva);
     font-weight: 600;
     font-size: clamp(2.4rem, 5.4vw, 4rem);
     line-height: 1.08;
@@ -568,6 +568,8 @@ html.has-cursor #cursor-dot, html.has-cursor #cursor-ring { opacity: 1; }
 }
 .muhurtham-mandala { position: absolute; right: -160px; top: 50%; translate: 0 -50%; width: 560px; height: 560px; color: rgba(228,200,120,.1); animation: spin 100s linear infinite reverse; }
 .muhurtham-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(44px, 6vw, 90px); align-items: center; position: relative; }
+.muhurtham-center { position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.muhurtham-center .muhurtham-plate { margin-top: 36px; }
 .muhurtham-lede { font-family: var(--serif); font-style: italic; color: rgba(250,243,231,.75); font-size: clamp(1rem, 2.1vw, 1.25rem); text-align: left; margin-top: 6px; }
 .muhurtham-malayalam { font-family: var(--deva); color: rgba(228,200,120,.85); font-size: 1.05rem; letter-spacing: .12em; margin-top: 14px; text-align: left; }
 .muhurtham-plate {
