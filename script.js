@@ -10,6 +10,7 @@ const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
 const REDUCED  = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const FINE     = matchMedia('(pointer: fine)').matches;
+const TOUCH    = matchMedia('(pointer: coarse)').matches || matchMedia('(hover: none)').matches;
 const WEDDING_TS = new Date('2028-07-28T08:00:00+05:30').getTime();
 
 /* apply data-delay → --d custom prop */
@@ -77,15 +78,17 @@ const Petals = (() => {
     const canvas = $('#petals-canvas');
     const ctx = canvas.getContext('2d');
     const COLORS = ['#E8930C', '#F7B733', '#D97B06', '#C94F4F', '#E4C878'];
-    let W, H, dpr, ambient = [], burst = [], running = false;
+    const FRAME_INTERVAL = TOUCH ? 1000 / 30 : 0;
+    let W, H, dpr, ambient = [], burst = [], running = false, rafId = 0, lastFrame = 0;
 
     function resize() {
-        dpr = Math.min(devicePixelRatio || 1, 2);
+        // Full-resolution fixed canvases can consume a large amount of memory on tablets.
+        dpr = Math.min(devicePixelRatio || 1, TOUCH ? 1.25 : 2);
         W = innerWidth; H = innerHeight;
-        canvas.width = W * dpr; canvas.height = H * dpr;
+        canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
-    addEventListener('resize', resize); resize();
+    addEventListener('resize', resize, { passive: true }); resize();
 
     const spawn = (fromTop, explosive) => {
         const s = 5 + Math.random() * 7;
@@ -105,9 +108,38 @@ const Petals = (() => {
         };
     };
 
-    function loop() {
+    function schedule() {
+        if (!running && !document.hidden && (ambient.length || burst.length)) {
+            running = true;
+            lastFrame = 0;
+            rafId = requestAnimationFrame(loop);
+        }
+    }
+
+    function draw(p) {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.a);
+        ctx.globalAlpha = p.explosive ? Math.max(p.life, 0) * .9 : .75;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.moveTo(0, -p.s);
+        ctx.bezierCurveTo(p.s * .95, -p.s * .35, p.s * .7, p.s * .6, 0, p.s);
+        ctx.bezierCurveTo(-p.s * .7, p.s * .6, -p.s * .95, -p.s * .35, 0, -p.s);
+        ctx.fill();
+        ctx.restore();
+    }
+
+    function loop(now) {
+        rafId = 0;
+        if (document.hidden) { running = false; return; }
+        if (FRAME_INTERVAL && now - lastFrame < FRAME_INTERVAL) {
+            rafId = requestAnimationFrame(loop);
+            return;
+        }
+        lastFrame = now;
         ctx.clearRect(0, 0, W, H);
-        const t = performance.now() / 1000;
+        const t = now / 1000;
 
         ambient.forEach(p => {
             p.y += p.vy;
@@ -122,35 +154,35 @@ const Petals = (() => {
             p.y += p.vy; p.a += p.va * 2; p.life -= .006;
         });
 
-        [...ambient, ...burst].forEach(p => {
-            ctx.save();
-            ctx.translate(p.x, p.y);
-            ctx.rotate(p.a);
-            ctx.globalAlpha = p.explosive ? Math.max(p.life, 0) * .9 : .75;
-            ctx.fillStyle = p.color;
-            ctx.beginPath();
-            ctx.moveTo(0, -p.s);
-            ctx.bezierCurveTo(p.s * .95, -p.s * .35, p.s * .7, p.s * .6, 0, p.s);
-            ctx.bezierCurveTo(-p.s * .7, p.s * .6, -p.s * .95, -p.s * .35, 0, -p.s);
-            ctx.fill();
-            ctx.restore();
-        });
+        ambient.forEach(draw);
+        burst.forEach(draw);
 
-        if (running || burst.length) requestAnimationFrame(loop);
+        if (ambient.length || burst.length) rafId = requestAnimationFrame(loop);
         else running = false;
     }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = 0;
+            running = false;
+        } else {
+            schedule();
+        }
+    });
 
     return {
         start() {
             if (REDUCED) return;
-            const n = innerWidth < 768 ? 9 : 16;
+            const n = TOUCH ? 5 : (innerWidth < 768 ? 9 : 16);
             ambient = Array.from({ length: n }, () => spawn(false, false));
-            if (!running) { running = true; requestAnimationFrame(loop); }
+            schedule();
         },
         rain(extra = 70) {
             if (REDUCED) return;
-            for (let i = 0; i < extra; i++) burst.push(spawn(true, true));
-            if (!running) { running = true; requestAnimationFrame(loop); }
+            const count = TOUCH ? Math.max(18, Math.round(extra * .5)) : extra;
+            for (let i = 0; i < count; i++) burst.push(spawn(true, true));
+            schedule();
         }
     };
 })();
@@ -215,7 +247,8 @@ function onScrollFrame() {
     scrollQueued = false;
     const max = document.documentElement.scrollHeight - innerHeight;
     progressBar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
-    if (!REDUCED) {
+    // Avoid per-frame layout reads and transform updates while scrolling on touch devices.
+    if (!REDUCED && !TOUCH) {
         const vh = innerHeight;
         pxEls.forEach(el => {
             const r = el.getBoundingClientRect();
@@ -268,20 +301,38 @@ if (FINE && !REDUCED) {
 
 /* ─────────── custom cursor ─────────── */
 if (FINE && !REDUCED) {
-    document.documentElement.classList.add('has-cursor');
     const dot = $('#cursor-dot'), ring = $('#cursor-ring');
-    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, cursorFrame = 0;
+
+    function moveRing() {
+        const dx = mx - rx, dy = my - ry;
+        rx += dx * .16; ry += dy * .16;
+        const size = ring.classList.contains('big') ? 64 : 38;
+        ring.style.transform = `translate(${rx - size / 2}px, ${ry - size / 2}px)`;
+        if (Math.abs(dx) > .2 || Math.abs(dy) > .2) {
+            cursorFrame = requestAnimationFrame(moveRing);
+        } else {
+            rx = mx; ry = my;
+            cursorFrame = 0;
+        }
+    }
+
+    const queueRingMove = () => {
+        if (!cursorFrame) cursorFrame = requestAnimationFrame(moveRing);
+    };
+
     addEventListener('mousemove', e => {
+        document.documentElement.classList.add('has-cursor');
         mx = e.clientX; my = e.clientY;
         dot.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
+        queueRingMove();
     }, { passive: true });
-    (function ringLoop() {
-        rx += (mx - rx) * .16; ry += (my - ry) * .16;
-        ring.style.transform = `translate(${rx - ring.offsetWidth / 2}px, ${ry - ring.offsetHeight / 2}px)`;
-        requestAnimationFrame(ringLoop);
-    })();
     document.addEventListener('mouseover', e => {
-        ring.classList.toggle('big', !!e.target.closest('a, button, .g-item, [data-tilt], input, textarea, select'));
+        const isInteractive = !!e.target.closest('a, button, .g-item, [data-tilt], input, textarea, select');
+        if (ring.classList.contains('big') !== isInteractive) {
+            ring.classList.toggle('big', isInteractive);
+            queueRingMove();
+        }
     });
 }
 
