@@ -32,28 +32,50 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    /* Reserve the scrollbar track from first paint: no 15px layout jump when the
+       gate unlocks the page, and no phantom empty strip on the right. */
+    scrollbar-gutter: stable;
+    background: var(--night-2); /* dark backdrop behind the gate-era gutter */
+    overflow-x: hidden;
+    overflow-x: clip;
+}
 html.locked, html.locked body { overflow: hidden; }
 
 body {
     font-family: var(--sans);
     font-weight: 300;
-    background: var(--ivory);
+    /* Dark canvas: every section paints its own ivory/night background, so this
+       only shows through the reserved scrollbar gutter — blending with the gate
+       instead of an ivory "empty strip" on the right. */
+    background: var(--night-2);
     color: var(--ink);
     line-height: 1.65;
     overflow-x: hidden;
+    overflow-x: clip; /* hard-cuts any stray overflow (reveal offsets, off-canvas ornaments) */
     -webkit-font-smoothing: antialiased;
 }
 
-/* parchment grain */
+/* parchment grain — pre-baked PNG tile (raster-free; replaces the costly
+   feTurbulence SVG filter which forced an expensive full-viewport raster on load) */
 body::after {
     content: '';
     position: fixed; inset: 0;
     pointer-events: none;
     z-index: 3;
     opacity: .05;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+    background-image: url("data:image/png;base64,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");
+    background-size: 144px 144px;
 }
+
+/* themed slim scrollbar — makes the scrollbar look intentional
+   instead of an empty band on the right */
+html { scrollbar-color: var(--gold-3) var(--ivory-2); scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--ivory-2); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold-3), var(--maroon)); border-radius: 6px; border: 2px solid var(--ivory-2); }
+::-webkit-scrollbar-thumb:hover { background: var(--maroon); }
 
 ::selection { background: var(--maroon); color: var(--gold-2); }
 
@@ -66,6 +88,15 @@ a { color: inherit; }
 
 section { position: relative; padding: clamp(80px, 11vh, 130px) 0; }
 section { scroll-margin-top: 20px; }
+
+/* Skip layout/paint of off-screen sections — the browser renders them as they
+   approach the viewport. Huge win for first paint + smooth scrolling. */
+.sec-story, .sec-events, .sec-muhurtham, .sec-gallery,
+.sec-venue, .sec-rsvp, .sec-wishes, .sec-invite, footer#footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+    contain-intrinsic-size: auto 1000px;
+}
 
 .hidden { display: none !important; }
 
@@ -350,7 +381,9 @@ html.has-cursor #cursor-dot, html.has-cursor #cursor-ring { opacity: 1; }
     color: var(--ivory);
 }
 .hero-bg { position: absolute; inset: -28% 0; z-index: 0; will-change: transform; }
-.hero-bg .kb { width: 100%; height: 100%; object-fit: cover; animation: kenburns 26s var(--ease-io) infinite alternate; filter: saturate(1.05); }
+/* no filter here: a filter on the infinitely-animating Ken Burns layer forces the
+   compositor to re-raster a full-viewport image every frame → scroll/load jank */
+.hero-bg .kb { width: 100%; height: 100%; object-fit: cover; animation: kenburns 26s var(--ease-io) infinite alternate; }
 @keyframes kenburns { from { transform: scale(1.02) translateY(0); } to { transform: scale(1.14) translateY(-2.5%); } }
 .hero-veil {
     position: absolute; inset: 0; z-index: 1;
@@ -396,11 +429,12 @@ html.has-cursor #cursor-dot, html.has-cursor #cursor-ring { opacity: 1; }
     margin-top: 42px;
     display: inline-flex; align-items: center; gap: clamp(10px, 2.6vw, 26px);
     padding: 18px clamp(16px, 4vw, 44px);
-    background: rgba(38, 6, 15, .45);
+    /* Solid plate instead of backdrop-filter: the falling petals canvas re-painted
+       beneath it and invalidated the blurred backdrop every single frame. */
+    background: rgba(38, 6, 15, .62);
     border: 1px solid rgba(228,200,120,.35);
     border-radius: 14px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 20px 44px -20px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.07);
 }
 .cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 2ch; }
 .cd-val { font-family: var(--serif); font-weight: 600; font-size: clamp(1.7rem, 4.6vw, 2.8rem); color: var(--gold-2); line-height: 1; font-variant-numeric: tabular-nums; }

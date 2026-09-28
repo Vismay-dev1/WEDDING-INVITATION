@@ -16,7 +16,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Marcellus&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Serif+Malayalam:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=6.1">
+    <!-- Start the two always-visible images immediately -->
+    <link rel="preload" as="image" href="assets/hero-web.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="invitation_card.jpg" fetchpriority="high">
+
+    <link rel="stylesheet" href="style.css?v=6.2">
     <noscript><style>#gate{display:none!important}html.locked{overflow:auto}html.locked body{overflow:auto}[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -150,7 +154,7 @@
 
     <!-- HERO -->
     <header id="home" class="hero" data-nav="Home">
-        <div class="hero-bg" data-parallax="0.25"><img src="assets/hero-web.jpg" alt="" class="kb"></div>
+        <div class="hero-bg" data-parallax="0.25"><img src="assets/hero-web.jpg" alt="" class="kb" fetchpriority="high" decoding="async"></div>
         <div class="hero-veil" aria-hidden="true"></div>
         <svg class="hero-toran" aria-hidden="true" preserveAspectRatio="xMidYMin slice"><use href="#sym-toran"/></svg>
         <svg class="hero-mandala" aria-hidden="true"><use href="#sym-mandala"/></svg>
@@ -217,7 +221,7 @@
             <figure class="invite-frame" data-reveal="zoom" data-tilt>
                 <div class="invite-arch" aria-hidden="true"></div>
                 <button class="invite-img-wrap" id="invite-zoom" data-full="invitation_card.jpg" data-caption="The wedding invitation — tap to enlarge" aria-label="View the invitation card enlarged">
-                    <img src="invitation_card.jpg" alt="Wedding invitation card of Groom and Bride" loading="lazy">
+                    <img src="invitation_card.jpg" alt="Wedding invitation card of Groom and Bride" loading="lazy" decoding="async">
                     <span class="invite-hint">Tap to enlarge ⤢</span>
                 </button>
                 <figcaption data-reveal="up" data-delay="200">
@@ -275,7 +279,7 @@
 
         <div class="events-rail container">
             <article class="event-card" data-reveal="up" data-tilt>
-                <div class="event-media"><img src="assets/ganesh-pooja.jpg" alt="Ganesh pooja altar with marigolds and brass lamps" loading="lazy"><span class="event-chip">26 · JUL</span></div>
+                <div class="event-media"><img src="assets/ganesh-pooja.jpg" alt="Ganesh pooja altar with marigolds and brass lamps" loading="lazy" decoding="async"><span class="event-chip">26 · JUL</span></div>
                 <div class="event-body">
                     <h3>Ganesh Pooja</h3>
                     <p class="event-sanskrit">ശുഭാരംഭം · the sacred beginning</p>
@@ -289,7 +293,7 @@
             </article>
 
             <article class="event-card" data-reveal="up" data-delay="80" data-tilt>
-                <div class="event-media"><img src="mehandi.jpg" alt="Bridal hands with intricate mehendi" loading="lazy"><span class="event-chip">26 · JUL</span></div>
+                <div class="event-media"><img src="mehandi.jpg" alt="Bridal hands with intricate mehendi" loading="lazy" decoding="async"><span class="event-chip">26 · JUL</span></div>
                 <div class="event-body">
                     <h3>Mylanchi</h3>
                     <p class="event-sanskrit">മൈലാഞ്ചി · henna & hymns</p>
@@ -303,7 +307,7 @@
             </article>
 
             <article class="event-card" data-reveal="up" data-delay="160" data-tilt>
-                <div class="event-media"><img src="haldi.jpg" alt="Haldi ceremony decor" loading="lazy"><span class="event-chip">27 · JUL</span></div>
+                <div class="event-media"><img src="haldi.jpg" alt="Haldi ceremony decor" loading="lazy" decoding="async"><span class="event-chip">27 · JUL</span></div>
                 <div class="event-body">
                     <h3>Manjal-kuli</h3>
                     <p class="event-sanskrit">മഞ്ഞൾക്കുളി · the golden glow</p>
@@ -317,7 +321,7 @@
             </article>
 
             <article class="event-card" data-reveal="up" data-tilt>
-                <div class="event-media"><img src="assets/sangeet.jpg" alt="Sangeet night stage with fairy lights" loading="lazy"><span class="event-chip">27 · JUL</span></div>
+                <div class="event-media"><img src="assets/sangeet.jpg" alt="Sangeet night stage with fairy lights" loading="lazy" decoding="async"><span class="event-chip">27 · JUL</span></div>
                 <div class="event-body">
                     <h3>Sangeetham</h3>
                     <p class="event-sanskrit">സംഗീതം · a night of song</p>
@@ -331,7 +335,7 @@
             </article>
 
             <article class="event-card event-card--hero" data-reveal="up" data-delay="80" data-tilt>
-                <div class="event-media"><img src="assets/mandap.jpg" alt="Kalyana mandapam decorated with marigold garlands" loading="lazy"><span class="event-chip">28 · JUL</span></div>
+                <div class="event-media"><img src="assets/mandap.jpg" alt="Kalyana mandapam decorated with marigold garlands" loading="lazy" decoding="async"><span class="event-chip">28 · JUL</span></div>
                 <div class="event-body">
                     <h3>The Wedding · Muhurtham</h3>
                     <p class="event-sanskrit">മുഹൂർത്തം · താലികെട്ട്</p>
@@ -345,7 +349,7 @@
             </article>
 
             <article class="event-card" data-reveal="up" data-delay="160" data-tilt>
-                <div class="event-media"><img src="assets/reception.jpg" alt="Reception stage with roses and chandeliers" loading="lazy"><span class="event-chip">28 · JUL</span></div>
+                <div class="event-media"><img src="assets/reception.jpg" alt="Reception stage with roses and chandeliers" loading="lazy" decoding="async"><span class="event-chip">28 · JUL</span></div>
                 <div class="event-body">
                     <h3>Grand Reception</h3>
                     <p class="event-sanskrit">സദ്യ · feast &amp; blessings</p>
@@ -385,14 +389,14 @@
             <div class="divider" data-reveal="zoom"><svg><use href="#sym-paisley"/></svg></div>
 
             <div class="gallery">
-                <button class="g-item g-tall" data-reveal="up" data-full="assets/hero-web.jpg" data-caption="Hathphool & promises"><img src="assets/hero-web.jpg" alt="Henna-adorned hands holding" loading="lazy"><span>Hathphool &amp; promises</span></button>
-                <button class="g-item" data-reveal="up" data-delay="60" data-full="assets/ganesh-pooja.jpg" data-caption="Ganesh pooja, the sacred beginning"><img src="assets/ganesh-pooja.jpg" alt="Ganesh pooja altar" loading="lazy"><span>Ganesh pooja</span></button>
-                <button class="g-item" data-reveal="up" data-delay="120" data-full="mehandi.jpg" data-caption="Mylanchi rituals"><img src="mehandi.jpg" alt="Mylanchi on bridal hands" loading="lazy"><span>Mylanchi rituals</span></button>
-                <button class="g-item g-tall" data-reveal="up" data-delay="60" data-full="assets/mandap.jpg" data-caption="The kalyana mandapam"><img src="assets/mandap.jpg" alt="Wedding mandapam" loading="lazy"><span>The mandapam</span></button>
-                <button class="g-item" data-reveal="up" data-delay="120" data-full="haldi.jpg" data-caption="Manjal-kuli glow"><img src="haldi.jpg" alt="Manjal-kuli ceremony" loading="lazy"><span>Manjal-kuli glow</span></button>
-                <button class="g-item" data-reveal="up" data-delay="180" data-full="assets/sangeet.jpg" data-caption="Sangeet lights"><img src="assets/sangeet.jpg" alt="Sangeet stage lights" loading="lazy"><span>Sangeet lights</span></button>
-                <button class="g-item" data-reveal="up" data-delay="120" data-full="assets/reception.jpg" data-caption="The reception stage"><img src="assets/reception.jpg" alt="Reception stage" loading="lazy"><span>Reception stage</span></button>
-                <button class="g-item g-tall" data-reveal="up" data-delay="180" data-full="invitation_card.jpg" data-caption="The invitation"><img src="invitation_card.jpg" alt="Invitation card" loading="lazy"><span>The invitation</span></button>
+                <button class="g-item g-tall" data-reveal="up" data-full="assets/hero-web.jpg" data-caption="Hathphool & promises"><img src="assets/hero-web.jpg" alt="Henna-adorned hands holding" loading="lazy" decoding="async"><span>Hathphool &amp; promises</span></button>
+                <button class="g-item" data-reveal="up" data-delay="60" data-full="assets/ganesh-pooja.jpg" data-caption="Ganesh pooja, the sacred beginning"><img src="assets/ganesh-pooja.jpg" alt="Ganesh pooja altar" loading="lazy" decoding="async"><span>Ganesh pooja</span></button>
+                <button class="g-item" data-reveal="up" data-delay="120" data-full="mehandi.jpg" data-caption="Mylanchi rituals"><img src="mehandi.jpg" alt="Mylanchi on bridal hands" loading="lazy" decoding="async"><span>Mylanchi rituals</span></button>
+                <button class="g-item g-tall" data-reveal="up" data-delay="60" data-full="assets/mandap.jpg" data-caption="The kalyana mandapam"><img src="assets/mandap.jpg" alt="Wedding mandapam" loading="lazy" decoding="async"><span>The mandapam</span></button>
+                <button class="g-item" data-reveal="up" data-delay="120" data-full="haldi.jpg" data-caption="Manjal-kuli glow"><img src="haldi.jpg" alt="Manjal-kuli ceremony" loading="lazy" decoding="async"><span>Manjal-kuli glow</span></button>
+                <button class="g-item" data-reveal="up" data-delay="180" data-full="assets/sangeet.jpg" data-caption="Sangeet lights"><img src="assets/sangeet.jpg" alt="Sangeet stage lights" loading="lazy" decoding="async"><span>Sangeet lights</span></button>
+                <button class="g-item" data-reveal="up" data-delay="120" data-full="assets/reception.jpg" data-caption="The reception stage"><img src="assets/reception.jpg" alt="Reception stage" loading="lazy" decoding="async"><span>Reception stage</span></button>
+                <button class="g-item g-tall" data-reveal="up" data-delay="180" data-full="invitation_card.jpg" data-caption="The invitation"><img src="invitation_card.jpg" alt="Invitation card" loading="lazy" decoding="async"><span>The invitation</span></button>
             </div>
         </div>
     </section>
@@ -510,6 +514,6 @@
     <button class="lb-next" aria-label="Next image">›</button>
 </div>
 
-<script src="script.js?v=6.1"></script>
+<script src="script.js?v=6.2"></script>
 </body>
 </html>
