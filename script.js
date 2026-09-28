@@ -81,14 +81,21 @@ const Petals = (() => {
     const FRAME_INTERVAL = TOUCH ? 1000 / 30 : 0;
     let W, H, dpr, ambient = [], burst = [], running = false, rafId = 0, lastFrame = 0;
 
+    let lastW = 0;
     function resize() {
-        // Full-resolution fixed canvases can consume a large amount of memory on tablets.
-        dpr = Math.min(devicePixelRatio || 1, TOUCH ? 1.25 : 2);
-        W = innerWidth; H = innerHeight;
+        const w = innerWidth;
+        // Mobile browsers fire 'resize' mid-scroll when the URL bar shows/hides
+        // (height-only change). Reallocating the full-screen canvas there causes
+        // exactly the scroll jank we're avoiding — only rebuild if the WIDTH changed.
+        if (w === lastW) return;
+        lastW = w;
+        dpr = Math.min(devicePixelRatio || 1, TOUCH ? 1.25 : 1.5);
+        W = w; H = innerHeight;
         canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     addEventListener('resize', resize, { passive: true }); resize();
+    addEventListener('orientationchange', () => { lastW = 0; resize(); }, { passive: true });
 
     const spawn = (fromTop, explosive) => {
         const s = 5 + Math.random() * 7;
@@ -241,19 +248,36 @@ $('#start-btn').addEventListener('click', openGate);
 /* ─────────── scroll progress + parallax ─────────── */
 const progressBar = $('#scroll-progress');
 const pxEls = $$('[data-parallax]');
+let pxGeo = [];          // cached: { speed, docTop, height, guard }
 let scrollQueued = false;
+
+// Measure geometry once per resize instead of reading getBoundingClientRect()
+// on every scroll frame — that forced a synchronous layout read each frame.
+function measureParallax() {
+    pxGeo = pxEls.map(el => {
+        const r = el.getBoundingClientRect();
+        return {
+            speed:  parseFloat(el.dataset.parallax) || 0,
+            docTop: r.top + scrollY,
+            height: r.height,
+            guard:  (r.top + scrollY + r.height) * 1.6
+        };
+    });
+}
+addEventListener('resize', measureParallax, { passive: true });
+measureParallax();
 
 function onScrollFrame() {
     scrollQueued = false;
     const max = document.documentElement.scrollHeight - innerHeight;
     progressBar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
-    // Avoid per-frame layout reads and transform updates while scrolling on touch devices.
-    if (!REDUCED && !TOUCH) {
+    // Skip entirely when every parallax element is far out of view.
+    if (!REDUCED && !TOUCH && pxGeo.length && scrollY < pxGeo[0].guard) {
         const vh = innerHeight;
-        pxEls.forEach(el => {
-            const r = el.getBoundingClientRect();
-            const c = r.top + r.height / 2 - vh / 2;
-            el.style.transform = `translate3d(0, ${(-c * parseFloat(el.dataset.parallax)).toFixed(1)}px, 0)`;
+        pxEls.forEach((el, i) => {
+            const g = pxGeo[i];
+            const c = g.docTop - scrollY + g.height / 2 - vh / 2;
+            el.style.transform = `translate3d(0, ${(-c * g.speed).toFixed(1)}px, 0)`;
         });
     }
 }
