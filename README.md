@@ -1,50 +1,64 @@
-# 💍 Premium Digital Wedding Invitation
+# 💍 Premium Digital Wedding Invitation — Hindu Wedding Edition
 
-A luxurious, cinematic, and fully mobile-responsive wedding invitation website. Designed with a premium aesthetic, featuring smooth animations, traditional music integration, and an interactive guest experience.
+A cinematic, mobile-first digital wedding invitation in the style of modern premium wedding
+websites — reimagined around a traditional Indian Hindu wedding, with the original
+**Nadaswaram (Raga Valachi) background score retained**.
 
-## ✨ Features
+## ✨ The Experience
 
-- **Premium Design**: High-end editorial style with glassmorphism, gold gradients, and elegant typography (Playfair Display & Montserrat).
-- **Fully Responsive**: Optimized for all devices—from desktop to mobile—ensuring a seamless experience for every guest.
-- **Interactive Elements**:
-  - **Countdown Timer**: Real-time countdown to the big day.
-  - **Flip Cards**: Interactive event details (Mehendi, Haldi, Wedding) with touch support for mobile.
-  - **Love Story Timeline**: A beautifully animated scroll-reveal timeline of the couple's journey.
-- **Atmospheric Experience**: 
-  - Integrated traditional Nadaswaram music with a custom glass-morphic toggle.
-  - Subtle firefly particle effects for a magical ambiance.
-- **RSVP System**: Interactive form with confetti celebration upon "Yes" attendance.
-- **Venue Integration**: Embedded Google Maps for easy navigation to the Taj Auditorium.
+- **Sealed-envelope opening ceremony** — break the wax monogram seal, the flap lifts,
+  the invitation card rises, the maroon curtains part and marigold petals rain down as the
+  nadaswaram begins.
+- **Premium motion system (hand-rolled, zero animation libraries)**
+  - Letter-by-letter name reveals, line-mask reveals, blur/zoom/slide scroll reveals.
+  - Ken Burns breathing + scroll parallax hero, rotating gold mandalas, swaying marigold *toran*.
+  - Falling marigold-petal canvas (ambient + celebratory bursts), custom gold cursor,
+    magnetic 3D tilt cards, scroll-progress bar, section dot-navigation.
+  - Flip-tick countdown to the muhurtham, infinite gold marquee ribbon.
+  - `prefers-reduced-motion` fully respected.
+- **Hindu wedding programme** — Ganesh Pooja, Mehendi, Haldi, Sangeet Sandhya,
+  the Wedding Muhurtham and Grand Reception, each with time, venue and dress code.
+- **Muhurtham rituals timeline** — Kashi Yatra → Kanyadaanam → Mangalya Dharana →
+  Saptapadi → Aashirvadam, on a deep-maroon gold stage.
+- **Sanskrit invocation** (॥ श्री गणेशाय नमः ॥ and the Sarve Bhavantu Sukhinah shloka)
+  set in Tiro Devanagari.
+- **Digital invitation card** in a gold-arch frame with 3D tilt and tap-to-enlarge lightbox.
+- **Sticky two-column love-story timeline** with a scroll-drawn gold line.
+- **Gallery** — masonry grid with lightbox (keyboard: ←/→/Esc).
+- **RSVP + Blessings Wall** — responses are sealed onto a wall of wishes (stored locally),
+  with a petal-burst celebration on "joyfully accepts".
+- **Venue** — map, travel notes, *Open in Maps*, *Save the Date* (.ics download)
+  and *Share on WhatsApp*.
+- **Music player** — floating gold disc with animated equaliser and spinning zari ring;
+  the traditional nadaswaram track is unchanged.
 
-## 🛠️ Tech Stack
+## 🎨 Design Language
 
-- **Frontend**: HTML5, Vanilla CSS3 (Custom Design System), JavaScript (ES6+).
-- **Animations**: [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/) for reveal effects.
-- **Effects**: [Canvas Confetti](https://www.kirilv.com/canvas-confetti/) for celebrations.
-- **Fonts**: Google Fonts (Playfair Display, Montserrat, Great Vibes).
+Ivory parchment · deep maroon · zari gold · marigold — harmonised with the printed
+invitation card. Type: Cormorant Garamond (display), Marcellus (caps), Great Vibes
+(script), Jost (body), Tiro Devanagari Sanskrit (Sanskrit).
 
-## 🚀 Getting Started
+## 🗂️ Files
 
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/vismay/invitation.git
-    ```
-2.  **Open the invitation**:
-    Simply open `index.html` in any modern web browser.
+| File | Purpose |
+|---|---|
+| `index.html` | Structure + inline SVG ornament library (mandala, toran, paisley, diya, kalash) |
+| `style.css` | Full design system, reveals, responsive + reduced-motion rules |
+| `script.js` | Gate ceremony, reveals, parallax, petals, countdown, RSVP, lightbox, share |
+| `assets/` | Generated ceremony imagery (mandap, Ganesh pooja, sangeet, reception) + optimised hero |
+| `saseendran-…mp3` | Retained nadaswaram background score |
 
-## 📸 Assets
+## ✒️ Customisation
 
-- `hero.jpg`: Main cinematic background.
-- `invitation_card.jpg`: Digital version of the physical invite.
-- `mehandi.jpg`, `haldi.jpg`: Themed imagery for events.
-- `saseendran-raga-valachi-nadaswaram.mp3`: Traditional background score.
+1. Search-replace `GROOM` / `BRIDE` (and the `G`/`B` seal/monogram letters) in `index.html`.
+2. Edit dates, times and venues directly in the event cards and hero in `index.html`.
+3. Countdown / muhurtham target: `WEDDING_TS` at the top of `script.js`.
+4. Swap photos in the root and `assets/` folders; gallery entries live in `#gallery`.
 
-## ✒️ Customization
+## 🚀 Run
 
-To personalize this invitation:
-1.  Update names and venue in `index.html`.
-2.  Adjust the wedding date in `script.js` for the countdown.
-3.  Replace image assets in the root folder with your own photos.
+```bash
+python3 -m http.server 8080   # or just open index.html
+```
 
----
-Handcrafted with ❤️ for a special celebration.
+Handcrafted with ❤️ and आशीर्वाद.

@@ -1,326 +1,525 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="locked">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GROOM & BRIDE | Wedding Invitation</title>
-    <meta name="description" content="You are cordially invited to celebrate the union of GROOM and BRIDE. Join us for a day filled with love and magic.">
-    
-    <!-- Preload Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" as="style">
-    
-    <!-- Google Fonts -->
+    <title>GROOM &amp; BRIDE — A Hindu Wedding Celebration | 28 . 07 . 2028</title>
+    <meta name="description" content="Together with their families, GROOM & BRIDE cordially invite you to celebrate their wedding — Mehendi, Haldi, Sangeet & the sacred Muhurtham at Taj Auditorium, Bengaluru.">
+    <meta name="theme-color" content="#4C0E24">
+    <meta property="og:title" content="GROOM weds BRIDE — 28.07.2028">
+    <meta property="og:description" content="You are cordially invited to the wedding celebrations at Taj Auditorium, Bengaluru.">
+    <meta property="og:image" content="invitation_card.jpg">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234C0E24'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23E4C878' font-family='serif'%3E%E0%A5%90%3C/text%3E%3C/svg%3E">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Marcellus&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
 
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=5.0">
-    
-    <!-- AOS for Scroll Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
+    <noscript><style>#gate{display:none!important}html.locked{overflow:auto}html.locked body{overflow:auto}[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
-    <!-- Intro Overlay -->
-    <div id="intro-overlay">
-        <div class="intro-content">
-            <h2 class="great-vibes gold-text">GROOM & BRIDE</h2>
-            <div class="intro-line"></div>
-            <p>Our Forever Begins Today</p>
-            <button id="start-btn" class="btn-primary" style="margin-top: 30px;">Open Invitation</button>
+<!-- ══════════════ SVG ORNAMENT LIBRARY ══════════════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <!-- Rotating mandala ring -->
+        <symbol id="sym-mandala" viewBox="-110 -110 220 220">
+            <g fill="none" stroke="currentColor">
+                <circle r="104" stroke-width="1" opacity=".45"/>
+                <circle r="100" stroke-width="3" stroke-dasharray="0.5 13" stroke-linecap="round" opacity=".8"/>
+                <circle r="94" stroke-width=".75" opacity=".7"/>
+                <circle r="34" stroke-width="1"/>
+                <circle r="26" stroke-width=".75" opacity=".7"/>
+                <circle r="5" stroke-width="1"/>
+                <g id="mp1" stroke-width="1.1"><path d="M0 -94 C 12 -76, 12 -54, 0 -38 C -12 -54, -12 -76, 0 -94 Z"/></g>
+                <use href="#mp1" transform="rotate(30)"/><use href="#mp1" transform="rotate(60)"/>
+                <use href="#mp1" transform="rotate(90)"/><use href="#mp1" transform="rotate(120)"/>
+                <use href="#mp1" transform="rotate(150)"/><use href="#mp1" transform="rotate(180)"/>
+                <use href="#mp1" transform="rotate(210)"/><use href="#mp1" transform="rotate(240)"/>
+                <use href="#mp1" transform="rotate(270)"/><use href="#mp1" transform="rotate(300)"/>
+                <use href="#mp1" transform="rotate(330)"/>
+                <g id="mp2" stroke-width=".9" opacity=".85"><path d="M0 -62 C 8 -50, 8 -36, 0 -24 C -8 -36, -8 -50, 0 -62 Z" transform="rotate(15)"/></g>
+                <use href="#mp2" transform="rotate(30)"/><use href="#mp2" transform="rotate(60)"/>
+                <use href="#mp2" transform="rotate(90)"/><use href="#mp2" transform="rotate(120)"/>
+                <use href="#mp2" transform="rotate(150)"/><use href="#mp2" transform="rotate(180)"/>
+                <use href="#mp2" transform="rotate(210)"/><use href="#mp2" transform="rotate(240)"/>
+                <use href="#mp2" transform="rotate(270)"/><use href="#mp2" transform="rotate(300)"/>
+                <use href="#mp2" transform="rotate(330)"/>
+            </g>
+        </symbol>
+
+        <!-- Marigold toran garland -->
+        <symbol id="sym-toran" viewBox="0 0 1200 96">
+            <path d="M0 6 H1200" stroke="#C19A3F" stroke-width="2.5" fill="none"/>
+            <g id="t-long">
+                <line x1="0" y1="6" x2="0" y2="34" stroke="#C19A3F" stroke-width="1.5"/>
+                <circle cx="0" cy="42" r="8" fill="#E8930C"/><circle cx="0" cy="42" r="4" fill="#F7B733" opacity=".9"/>
+                <circle cx="0" cy="56" r="7" fill="#D97B06"/><circle cx="0" cy="56" r="3.4" fill="#F7B733" opacity=".9"/>
+                <circle cx="0" cy="69" r="6" fill="#E8930C"/><circle cx="0" cy="69" r="2.8" fill="#FFD37A" opacity=".9"/>
+                <path d="M0 76 C 5 82, 5 88, 0 92 C -5 88, -5 82, 0 76 Z" fill="#5A7440"/>
+            </g>
+            <g id="t-short">
+                <line x1="0" y1="6" x2="0" y2="22" stroke="#C19A3F" stroke-width="1.5"/>
+                <circle cx="0" cy="30" r="7" fill="#D97B06"/><circle cx="0" cy="30" r="3.2" fill="#FFD37A" opacity=".9"/>
+                <circle cx="0" cy="43" r="6" fill="#E8930C"/><circle cx="0" cy="43" r="2.6" fill="#F7B733" opacity=".9"/>
+                <path d="M-7 50 C -1 54, 1 54, 7 50 C 3 58, -3 58, -7 50 Z" fill="#5A7440"/>
+            </g>
+            <use href="#t-long" x="50"/><use href="#t-short" x="150"/><use href="#t-long" x="250"/>
+            <use href="#t-short" x="350"/><use href="#t-long" x="450"/><use href="#t-short" x="550"/>
+            <use href="#t-long" x="650"/><use href="#t-short" x="750"/><use href="#t-long" x="850"/>
+            <use href="#t-short" x="950"/><use href="#t-long" x="1050"/><use href="#t-short" x="1150"/>
+        </symbol>
+
+        <!-- Paisley divider -->
+        <symbol id="sym-paisley" viewBox="0 0 64 64">
+            <path d="M32 8 C 48 14, 52 32, 44 44 C 38 53, 24 54, 20 45 C 17 38, 22 32, 28 33 C 33 34, 35 39, 32 42"
+                  fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="32" cy="56" r="2.4" fill="currentColor"/>
+        </symbol>
+
+        <!-- Diya lamp -->
+        <symbol id="sym-diya" viewBox="0 0 64 64">
+            <path d="M32 8 C 38 17, 37 25, 32 28 C 27 25, 26 17, 32 8 Z" fill="#E8930C"/>
+            <path d="M32 14 C 35 19, 34.5 24, 32 26 C 29.5 24, 29 19, 32 14 Z" fill="#FFD37A"/>
+            <path d="M8 34 Q 32 42 56 34 C 54 48, 44 56, 32 56 C 20 56, 10 48, 8 34 Z" fill="currentColor"/>
+            <path d="M8 34 Q 32 42 56 34" fill="none" stroke="#E4C878" stroke-width="2"/>
+        </symbol>
+
+        <!-- Kalash -->
+        <symbol id="sym-kalash" viewBox="0 0 64 64">
+            <circle cx="32" cy="12" r="6" fill="#8A5A2B"/>
+            <path d="M20 18 L44 18 L40 24 L24 24 Z" fill="#5A7440"/>
+            <path d="M24 18 C 18 10, 26 6, 32 12 C 38 6, 46 10, 40 18" fill="#5A7440"/>
+            <path d="M18 26 C 12 40, 18 54, 32 56 C 46 54, 52 40, 46 26 Z" fill="currentColor"/>
+            <path d="M18 34 Q 32 40 46 34" fill="none" stroke="#E4C878" stroke-width="2"/>
+        </symbol>
+
+        <!-- tiny line icons -->
+        <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2.5"/></g></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></g></symbol>
+        <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 10h17M8 2.8V7M16 2.8V7"/></g></symbol>
+        <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.5-.3-2.6.7.7-2.5-.3-.5A8 8 0 0 1 12 4zm-3 4.2c-.2 0-.5.1-.7.3-.6.6-1 1.4-1 2.3 0 1.6 1.2 3.2 2.4 4.4 1.5 1.5 3.3 2.5 4.8 2.5.9 0 1.7-.4 2.3-1 .2-.2.3-.5.3-.7l-.3-1.4c-.1-.3-.3-.5-.6-.6l-1.5-.5c-.3-.1-.6 0-.8.2l-.7.8c-.2.2-.5.3-.8.1a6.6 6.6 0 0 1-3-3c-.2-.3-.1-.6.1-.8l.8-.7c.2-.2.3-.5.2-.8l-.5-1.5c-.1-.3-.3-.5-.6-.6z"/></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 1 0-6.4-6.4L11.6 6"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 1 0 6.4 6.4l1.6-1.6"/></g></symbol>
+    </defs>
+</svg>
+
+<!-- ══════════════ FIXED CHROME ══════════════ -->
+<div id="scroll-progress" aria-hidden="true"></div>
+<canvas id="petals-canvas" aria-hidden="true"></canvas>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+
+<!-- Music player (nadaswaram retained) -->
+<button id="music-toggle" aria-label="Play or pause the nadaswaram music" aria-pressed="false" title="Nadaswaram · Raga Valachi">
+    <span class="mt-ring" aria-hidden="true"></span>
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</button>
+<audio id="bg-music" loop preload="auto">
+    <source src="saseendran-raga-valachi-nadaswaram-6_8-382924.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Section dot-nav (desktop) -->
+<nav id="dot-nav" aria-label="Sections"></nav>
+
+<!-- ══════════════ GATE · ENVELOPE INTRO ══════════════ -->
+<div id="gate" role="dialog" aria-modal="true" aria-label="Open the wedding invitation">
+    <div class="gate-half left" aria-hidden="true"></div>
+    <div class="gate-half right" aria-hidden="true"></div>
+    <div class="gate-inner">
+        <svg class="gate-mandala" aria-hidden="true"><use href="#sym-mandala"/></svg>
+        <p class="gate-shloka">॥ श्री गणेशाय नमः ॥</p>
+        <div class="envelope" id="envelope">
+            <div class="env-back"></div>
+            <div class="env-card"><img src="invitation_card.jpg" alt="The wedding invitation card"></div>
+            <div class="env-pocket"></div>
+            <div class="env-flap"></div>
+            <button id="wax-seal" aria-label="Break the seal and open the invitation">
+                <span class="seal-mono">G<span class="amp">&amp;</span>B</span>
+            </button>
+        </div>
+        <p class="gate-names"><span class="gn">GROOM</span> <em>weds</em> <span class="gn">BRIDE</span></p>
+        <button id="start-btn" class="btn-gold">Open the Invitation</button>
+        <p class="gate-hint">Untie the seal · keep your sound on <span class="hint-note">♫ nadaswaram awaits</span></p>
+    </div>
+</div>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<main id="main-wrapper">
+
+    <!-- HERO -->
+    <header id="home" class="hero" data-nav="Home">
+        <div class="hero-bg" data-parallax="0.25"><img src="assets/hero-web.jpg" alt="" class="kb"></div>
+        <div class="hero-veil" aria-hidden="true"></div>
+        <svg class="hero-toran" aria-hidden="true" preserveAspectRatio="xMidYMin slice"><use href="#sym-toran"/></svg>
+        <svg class="hero-mandala" aria-hidden="true"><use href="#sym-mandala"/></svg>
+
+        <div class="hero-content">
+            <p class="hero-eyebrow mask" data-reveal="mask"><span class="mask-inner">॥ शुभ विवाह ॥ &nbsp;·&nbsp; Together with their families</span></p>
+            <h1 class="hero-names">
+                <span class="hero-name" data-split data-reveal="split">GROOM</span>
+                <span class="hero-weds" data-reveal="zoom">weds</span>
+                <span class="hero-name" data-split data-reveal="split">BRIDE</span>
+            </h1>
+            <div class="hero-dateplate" data-reveal="up" data-delay="500">
+                <span class="dp-side">Sunday</span>
+                <span class="dp-mid"><strong>28</strong><small>July 2028</small></span>
+                <span class="dp-side">8 AM · Muhurtham</span>
+            </div>
+            <p class="hero-venue" data-reveal="up" data-delay="650">Taj Auditorium · Bengaluru</p>
+
+            <div class="countdown" data-reveal="up" data-delay="800" aria-label="Countdown to the wedding">
+                <div class="cd-unit"><span class="cd-val" id="cd-days">00</span><small>Days</small></div>
+                <span class="cd-sep">✦</span>
+                <div class="cd-unit"><span class="cd-val" id="cd-hours">00</span><small>Hours</small></div>
+                <span class="cd-sep">✦</span>
+                <div class="cd-unit"><span class="cd-val" id="cd-mins">00</span><small>Minutes</small></div>
+                <span class="cd-sep">✦</span>
+                <div class="cd-unit"><span class="cd-val" id="cd-secs">00</span><small>Seconds</small></div>
+            </div>
+        </div>
+
+        <a href="#invocation" class="scroll-cue" aria-label="Scroll to begin">
+            <span>Scroll to reveal</span>
+            <span class="cue-line"><i></i></span>
+        </a>
+    </header>
+
+    <!-- MARQUEE RIBBON -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>GROOM weds BRIDE ✦ 28 · 07 · 2028 ✦ Taj Auditorium, Bengaluru ✦ ॥ शुभ मंगल सावधान ॥ ✦ Mehendi · Haldi · Sangeet · Muhurtham ✦&nbsp;</span>
+            <span>GROOM weds BRIDE ✦ 28 · 07 · 2028 ✦ Taj Auditorium, Bengaluru ✦ ॥ शुभ मंगल सावधान ॥ ✦ Mehendi · Haldi · Sangeet · Muhurtham ✦&nbsp;</span>
         </div>
     </div>
 
-
-    <!-- Music Toggle -->
-    <button id="music-toggle" class="glass-card">
-        <span class="icon">🔊</span>
-    </button>
-    <audio id="bg-music" loop preload="auto">
-        <source src="saseendran-raga-valachi-nadaswaram-6_8-382924.mp3" type="audio/mpeg">
-    </audio>
-
-
-
-
-
-
-
-    <!-- Main Content -->
-    <div id="main-wrapper">
-        
-        <!-- Hero Section -->
-        <section id="hero" class="parallax">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <p class="hero-subtitle" data-aos="fade-down">Together With Their Families</p>
-                <h1 class="hero-title" data-aos="zoom-in">
-                    <span class="name">GROOM</span>
-                    <span class="and">&</span>
-                    <span class="name">BRIDE</span>
-                </h1>
-                <p class="hero-date" data-aos="fade-up">July 28, 2028 | Taj Auditorium, Bangalore</p>
-                
-                <!-- Countdown -->
-                <div class="countdown-container glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="countdown-item">
-                        <span id="days">00</span>
-                        <p>Days</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours">00</span>
-                        <p>Hours</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes">00</span>
-                        <p>Mins</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds">00</span>
-                        <p>Secs</p>
-                    </div>
-                </div>
-                <p class="countdown-footer" data-aos="fade-up">Counting down to our forever ❤️</p>
-                
-                <a href="#invitation" class="scroll-indicator">
-                    <span>Scroll To Reveal</span>
-                    <div class="mouse"></div>
-                </a>
+    <!-- INVOCATION -->
+    <section id="invocation" class="sec-invocation" data-nav="Invocation">
+        <div class="container narrow">
+            <p class="sanskrit" data-reveal="blur">ॐ सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः ।<br>सर्वे भद्राणि पश्यन्तु मा कश्चिद् दुःखभाग्भवेत् ॥</p>
+            <div class="divider" data-reveal="zoom"><svg><use href="#sym-paisley"/></svg></div>
+            <p class="invocation-line mask" data-reveal="mask"><span class="mask-inner">With the blessings of the Almighty and the elders of both families,</span></p>
+            <p class="invocation-line mask" data-reveal="mask" data-delay="150"><span class="mask-inner">we request the honour of your presence at the wedding of our children.</span></p>
+            <div class="invocation-diya" data-reveal="zoom" data-delay="250">
+                <svg><use href="#sym-diya"/></svg>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Digital Invitation Card -->
-        <section id="invitation">
-            <div class="container">
-                <div class="invitation-wrapper" data-aos="zoom-in">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <p id="img-error-msg" style="display: none; color: var(--maroon); text-align: center; padding: 20px; font-family: var(--sans-font);">
-                                ⚠️ Please save your image as <strong>invitation_card.jpg</strong> in this folder to display it here.
-                            </p>
-                            <img src="invitation_card.jpg" alt="Wedding Invitation" id="main-invitation-img" onerror="document.getElementById('main-invitation-img').style.display='none'; document.getElementById('img-error-msg').style.display='block';">
-                        </div>
+    <!-- DIGITAL INVITATION CARD -->
+    <section id="invitation" class="sec-invite" data-nav="The Card">
+        <div class="container">
+            <p class="kicker" data-reveal="up">The Digital Card</p>
+            <h2 class="sec-title" data-split data-reveal="split">Shubha Patrike</h2>
+            <div class="divider" data-reveal="zoom"><svg><use href="#sym-paisley"/></svg></div>
 
+            <figure class="invite-frame" data-reveal="zoom" data-tilt>
+                <div class="invite-arch" aria-hidden="true"></div>
+                <button class="invite-img-wrap" id="invite-zoom" data-full="invitation_card.jpg" data-caption="The wedding invitation — tap to enlarge" aria-label="View the invitation card enlarged">
+                    <img src="invitation_card.jpg" alt="Wedding invitation card of Groom and Bride" loading="lazy">
+                    <span class="invite-hint">Tap to enlarge ⤢</span>
+                </button>
+                <figcaption data-reveal="up" data-delay="200">
+                    <svg class="cap-kalash"><use href="#sym-kalash"/></svg>
+                    <span>Sealed with love, sent with blessings</span>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
 
-                    </div>
-                </div>
+    <!-- OUR STORY -->
+    <section id="story" class="sec-story" data-nav="Our Story">
+        <div class="container story-grid">
+            <div class="story-sticky">
+                <p class="kicker" data-reveal="up">Kalyana Kathe</p>
+                <h2 class="sec-title left" data-split data-reveal="split">Our Story</h2>
+                <p class="story-lede mask" data-reveal="mask"><span class="mask-inner">Two homes, one hymn — every love story is beautiful,</span></p>
+                <p class="story-lede mask" data-reveal="mask" data-delay="120"><span class="mask-inner">but ours is our favourite.</span></p>
+                <div class="story-monogram" data-reveal="zoom" data-delay="200">G<span class="amp">❤</span>B</div>
             </div>
-        </section>
-
-
-        <!-- Story / Timeline -->
-        <section id="story">
-            <div class="container">
-                <h2 class="section-title gold-text" data-aos="fade-up">Our Love Story</h2>
-                <div class="timeline" id="timeline">
-                    <div class="timeline-progress" id="timeline-progress"></div>
-
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-content glass-card">
-                            <h3>How We Met</h3>
-                            <p>A chance encounter that changed our lives forever. It started with a simple hello and turned into a lifetime of memories.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-left">
-                        <div class="timeline-content glass-card">
-                            <h3>The First Date</h3>
-                            <p>Coffee, laughter, and a connection that felt like we had known each other for ages.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-content glass-card">
-                            <h3>The Proposal</h3>
-                            <p>Under the starlit sky, he asked, and she said yes! A moment frozen in time.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="story-flow" id="story-flow">
+                <span class="story-line" aria-hidden="true"></span>
+                <article class="story-card" data-reveal="right">
+                    <span class="story-no">०१</span>
+                    <h3>A Chance Hello</h3>
+                    <p>It began the way the best stories do — unexpectedly. A shared umbrella, a missed bus, and a conversation neither of us wanted to end.</p>
+                </article>
+                <article class="story-card" data-reveal="right" data-delay="80">
+                    <span class="story-no">०२</span>
+                    <h3>The First Date</h3>
+                    <p>Filter coffee that went cold because we talked for three hours. Somewhere between laughter and silence, we both just knew.</p>
+                </article>
+                <article class="story-card" data-reveal="right" data-delay="80">
+                    <span class="story-no">०३</span>
+                    <h3>Two Families, One Yes</h3>
+                    <p>With horoscopes matched and hearts already decided, our elders blessed the union — and the celebrations began.</p>
+                </article>
+                <article class="story-card" data-reveal="right" data-delay="80">
+                    <span class="story-no">०४</span>
+                    <h3>The Proposal</h3>
+                    <p>Under a sky full of stars at Lalbagh, he knelt with a ring and a trembling voice. She said yes before he finished the question.</p>
+                </article>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Event Schedule -->
-        <section id="events" class="bg-alt">
-            <div class="container">
-                <h2 class="section-title gold-text" data-aos="fade-up">Wedding Events</h2>
-                <div class="event-grid">
-                    <!-- Mehendi Flip Card -->
-                    <div class="flip-card" data-aos="fade-up">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="event-img-container">
-                                    <img src="mehandi.jpg" alt="Mehendi Ceremony">
-                                </div>
-                                <div class="event-info-front">
-                                    <h3>Mehendi</h3>
-                                    <span class="tap-hint">View Details</span>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="circle-decor"></div>
-                                <div class="circle-decor" id="circle-bottom"></div>
-                                <div class="back-content">
-                                    <svg viewBox="0 0 50 50" height="40" width="40" fill="var(--gold)"><path d="M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z"></path></svg>
-                                    <h3>Mehendi</h3>
-                                    <div class="detail-item">
-                                        <span class="label">Time</span>
-                                        <span class="value">July 26, 2028 | 4:00 PM</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="label">Location</span>
-                                        <span class="value">Groom's Residence</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- EVENTS -->
+    <section id="events" class="sec-events" data-nav="Events">
+        <div class="container">
+            <p class="kicker" data-reveal="up">Karya Krama</p>
+            <h2 class="sec-title" data-split data-reveal="split">The Celebrations</h2>
+            <div class="divider" data-reveal="zoom"><svg><use href="#sym-paisley"/></svg></div>
+            <p class="sec-sub mask" data-reveal="mask"><span class="mask-inner">Six rituals of joy — swipe through the festivities that lead to the mandapam.</span></p>
+        </div>
 
-                    <!-- Haldi Flip Card -->
-                    <div class="flip-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="event-img-container">
-                                    <img src="haldi.jpg" alt="Haldi Ceremony">
-                                </div>
-                                <div class="event-info-front">
-                                    <h3>Haldi</h3>
-                                    <span class="tap-hint">View Details</span>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="circle-decor"></div>
-                                <div class="circle-decor" id="circle-bottom"></div>
-                                <div class="back-content">
-                                    <svg viewBox="0 0 50 50" height="40" width="40" fill="var(--gold)"><path d="M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z"></path></svg>
-                                    <h3>Haldi</h3>
-                                    <div class="detail-item">
-                                        <span class="label">Time</span>
-                                        <span class="value">July 27, 2028 | 10:00 AM</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="label">Location</span>
-                                        <span class="value">Bride's Residence</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="events-rail container">
+            <article class="event-card" data-reveal="up" data-tilt>
+                <div class="event-media"><img src="assets/ganesh-pooja.jpg" alt="Ganesh pooja altar with marigolds and brass lamps" loading="lazy"><span class="event-chip">26 · JUL</span></div>
+                <div class="event-body">
+                    <h3>Ganesh Pooja</h3>
+                    <p class="event-sanskrit">शुभारंभ · the sacred beginning</p>
+                    <p class="event-desc">Lord Ganesha is invoked to remove every obstacle and bless the journey ahead.</p>
+                    <ul class="event-meta">
+                        <li><svg><use href="#i-clock"/></svg>6:00 AM</li>
+                        <li><svg><use href="#i-pin"/></svg>Groom’s Residence</li>
+                    </ul>
+                    <span class="event-dress">Traditional ethnic</span>
+                </div>
+            </article>
 
-                    <!-- Wedding Flip Card -->
-                    <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="event-img-container">
-                                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600" alt="Wedding Ceremony">
-                                </div>
-                                <div class="event-info-front">
-                                    <h3>The Wedding</h3>
-                                    <span class="tap-hint">View Details</span>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="circle-decor"></div>
-                                <div class="circle-decor" id="circle-bottom"></div>
-                                <div class="back-content">
-                                    <svg viewBox="0 0 50 50" height="40" width="40" fill="var(--gold)"><path d="M20.84375 0.03125C20.191406 0.0703125 19.652344 0.425781 19.21875 1.53125C18.988281 2.117188 18.5 3.558594 18.03125 4.9375C17.792969 5.636719 17.570313 6.273438 17.40625 6.75C17.390625 6.796875 17.414063 6.855469 17.40625 6.90625C17.398438 6.925781 17.351563 6.949219 17.34375 6.96875L17.25 7.25C18.566406 7.65625 19.539063 8.058594 19.625 8.09375C22.597656 9.21875 28.351563 11.847656 33.28125 16.78125C38.5 22 41.183594 28.265625 42.09375 30.71875C42.113281 30.761719 42.375 31.535156 42.75 32.84375C42.757813 32.839844 42.777344 32.847656 42.78125 32.84375C43.34375 32.664063 44.953125 32.09375 46.3125 31.625C47.109375 31.351563 47.808594 31.117188 48.15625 31C49.003906 30.714844 49.542969 30.292969 49.8125 29.6875C50.074219 29.109375 50.066406 28.429688 49.75 27.6875C49.605469 27.347656 49.441406 26.917969 49.25 26.4375C47.878906 23.007813 45.007813 15.882813 39.59375 10.46875C33.613281 4.484375 25.792969 1.210938 22.125 0.21875C21.648438 0.0898438 21.234375 0.0078125 20.84375 0.03125 Z M 16.46875 9.09375L0.0625 48.625C-0.09375 48.996094 -0.00390625 49.433594 0.28125 49.71875C0.472656 49.910156 0.738281 50 1 50C1.128906 50 1.253906 49.988281 1.375 49.9375L40.90625 33.59375C40.523438 32.242188 40.222656 31.449219 40.21875 31.4375C39.351563 29.089844 36.816406 23.128906 31.875 18.1875C27.035156 13.34375 21.167969 10.804688 18.875 9.9375C18.84375 9.925781 17.8125 9.5 16.46875 9.09375 Z"></path></svg>
-                                    <h3>Wedding</h3>
-                                    <div class="detail-item">
-                                        <span class="label">Time</span>
-                                        <span class="value">July 28, 2028 | 8:00 AM</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="label">Location</span>
-                                        <span class="value">Taj Auditorium, Bangalore</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <article class="event-card" data-reveal="up" data-delay="80" data-tilt>
+                <div class="event-media"><img src="mehandi.jpg" alt="Bridal hands with intricate mehendi" loading="lazy"><span class="event-chip">26 · JUL</span></div>
+                <div class="event-body">
+                    <h3>Mehendi</h3>
+                    <p class="event-sanskrit">मेंहदी · henna & hymns</p>
+                    <p class="event-desc">Henna stains, dhol beats and the bride’s hands hide the groom’s name within the patterns.</p>
+                    <ul class="event-meta">
+                        <li><svg><use href="#i-clock"/></svg>4:00 PM</li>
+                        <li><svg><use href="#i-pin"/></svg>Bride’s Residence</li>
+                    </ul>
+                    <span class="event-dress">Vibrant yellows &amp; greens</span>
+                </div>
+            </article>
+
+            <article class="event-card" data-reveal="up" data-delay="160" data-tilt>
+                <div class="event-media"><img src="haldi.jpg" alt="Haldi ceremony decor" loading="lazy"><span class="event-chip">27 · JUL</span></div>
+                <div class="event-body">
+                    <h3>Haldi</h3>
+                    <p class="event-sanskrit">हल्दी · the golden glow</p>
+                    <p class="event-desc">Turmeric, love and laughter — the couple is anointed for radiance and blessings.</p>
+                    <ul class="event-meta">
+                        <li><svg><use href="#i-clock"/></svg>10:00 AM</li>
+                        <li><svg><use href="#i-pin"/></svg>Bride’s Residence</li>
+                    </ul>
+                    <span class="event-dress">Marigold &amp; ivory</span>
+                </div>
+            </article>
+
+            <article class="event-card" data-reveal="up" data-tilt>
+                <div class="event-media"><img src="assets/sangeet.jpg" alt="Sangeet night stage with fairy lights" loading="lazy"><span class="event-chip">27 · JUL</span></div>
+                <div class="event-body">
+                    <h3>Sangeet Sandhya</h3>
+                    <p class="event-sanskrit">संगीत · a night of song</p>
+                    <p class="event-desc">Both families dance the night away — choreographed chaos, endless joy.</p>
+                    <ul class="event-meta">
+                        <li><svg><use href="#i-clock"/></svg>7:00 PM</li>
+                        <li><svg><use href="#i-pin"/></svg>Taj Auditorium Lawns</li>
+                    </ul>
+                    <span class="event-dress">Cocktail · sparkle on</span>
+                </div>
+            </article>
+
+            <article class="event-card event-card--hero" data-reveal="up" data-delay="80" data-tilt>
+                <div class="event-media"><img src="assets/mandap.jpg" alt="Kalyana mandapam decorated with marigold garlands" loading="lazy"><span class="event-chip">28 · JUL</span></div>
+                <div class="event-body">
+                    <h3>The Wedding · Muhurtham</h3>
+                    <p class="event-sanskrit">मुहूर्तम् · mangalya dharana</p>
+                    <p class="event-desc">Kanyadaanam, the tying of the mangalsutra and seven sacred steps around the agni.</p>
+                    <ul class="event-meta">
+                        <li><svg><use href="#i-clock"/></svg>8:00 AM · Muhurtham 7:45–8:15</li>
+                        <li><svg><use href="#i-pin"/></svg>Taj Auditorium</li>
+                    </ul>
+                    <span class="event-dress">Silks &amp; gold · traditional</span>
+                </div>
+            </article>
+
+            <article class="event-card" data-reveal="up" data-delay="160" data-tilt>
+                <div class="event-media"><img src="assets/reception.jpg" alt="Reception stage with roses and chandeliers" loading="lazy"><span class="event-chip">28 · JUL</span></div>
+                <div class="event-body">
+                    <h3>Grand Reception</h3>
+                    <p class="event-sanskrit">स्नेहभोजन · feast &amp; blessings</p>
+                    <p class="event-desc">The newlyweds receive your blessings over a grand evening of dinner and delight.</p>
+                    <ul class="event-meta">
+                        <li><svg><use href="#i-clock"/></svg>7:00 PM</li>
+                        <li><svg><use href="#i-pin"/></svg>Taj Auditorium</li>
+                    </ul>
+                    <span class="event-dress">Formal · elegant</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- MUHURTHAM RITUALS -->
+    <section id="muhurtham" class="sec-muhurtham" data-nav="Muhurtham">
+        <svg class="muhurtham-mandala" aria-hidden="true"><use href="#sym-mandala"/></svg>
+        <div class="container muhurtham-grid">
+            <div class="muhurtham-copy">
+                <p class="kicker gold" data-reveal="up">The Sacred Hour</p>
+                <h2 class="sec-title left light" data-split data-reveal="split">Muhurtham Rituals</h2>
+                <p class="muhurtham-lede mask" data-reveal="mask"><span class="mask-inner">At the appointed auspicious hour, beneath the mandapam,</span></p>
+                <p class="muhurtham-lede mask" data-reveal="mask" data-delay="120"><span class="mask-inner">two souls take the seven vows of a lifetime.</span></p>
+                <div class="muhurtham-plate" data-reveal="zoom" data-delay="200">
+                    <svg><use href="#sym-kalash"/></svg>
+                    <div>
+                        <strong>Sumuhurtham</strong>
+                        <span>Friday, 28 July 2028 · 7:45 – 8:15 AM</span>
                     </div>
                 </div>
             </div>
-        </section>
+            <ol class="rituals">
+                <li data-reveal="left"><span class="r-time">7:15</span><div><h3>Kashi Yatra</h3><p>The groom’s playful procession, lovingly halted by the bride’s family.</p></div></li>
+                <li data-reveal="left" data-delay="80"><span class="r-time">7:45</span><div><h3>Kanyadaanam</h3><p>The bride’s parents entrust her hand, with water, mantra and memory.</p></div></li>
+                <li data-reveal="left" data-delay="160"><span class="r-time">8:00</span><div><h3>Mangalya Dharana</h3><p>The sacred thread is tied as the nadaswaram swells — the muhurtham.</p></div></li>
+                <li data-reveal="left" data-delay="240"><span class="r-time">8:15</span><div><h3>Saptapadi</h3><p>Seven steps around the holy fire, seven vows for seven lifetimes.</p></div></li>
+                <li data-reveal="left" data-delay="320"><span class="r-time">8:45</span><div><h3>Aashirvadam</h3><p>Elders shower akshata and blessings upon the newly wedded couple.</p></div></li>
+            </ol>
+        </div>
+    </section>
 
-        <!-- RSVP Section -->
-        <section id="rsvp">
-            <div class="container">
-                <div class="rsvp-container glass-card" data-aos="zoom-in">
-                    <div class="rsvp-decor-top">❦</div>
-                    <h2 class="great-vibes gold-text">Will you attend?</h2>
-                    <p class="rsvp-subtitle">Your presence would mean the world to us!</p>
-                    
-                    <form id="rsvp-form">
-                        <div class="input-group">
-                            <input type="text" placeholder="Your Name" required>
-                            <span class="input-line"></span>
+    <!-- GALLERY -->
+    <section id="gallery" class="sec-gallery" data-nav="Gallery">
+        <div class="container">
+            <p class="kicker" data-reveal="up">Moments</p>
+            <h2 class="sec-title" data-split data-reveal="split">Glimpses of Us</h2>
+            <div class="divider" data-reveal="zoom"><svg><use href="#sym-paisley"/></svg></div>
+
+            <div class="gallery">
+                <button class="g-item g-tall" data-reveal="up" data-full="assets/hero-web.jpg" data-caption="Hathphool & promises"><img src="assets/hero-web.jpg" alt="Henna-adorned hands holding" loading="lazy"><span>Hathphool &amp; promises</span></button>
+                <button class="g-item" data-reveal="up" data-delay="60" data-full="assets/ganesh-pooja.jpg" data-caption="Ganesh pooja, the sacred beginning"><img src="assets/ganesh-pooja.jpg" alt="Ganesh pooja altar" loading="lazy"><span>Ganesh pooja</span></button>
+                <button class="g-item" data-reveal="up" data-delay="120" data-full="mehandi.jpg" data-caption="Mehendi rituals"><img src="mehandi.jpg" alt="Mehendi on bridal hands" loading="lazy"><span>Mehendi rituals</span></button>
+                <button class="g-item g-tall" data-reveal="up" data-delay="60" data-full="assets/mandap.jpg" data-caption="The kalyana mandapam"><img src="assets/mandap.jpg" alt="Wedding mandapam" loading="lazy"><span>The mandapam</span></button>
+                <button class="g-item" data-reveal="up" data-delay="120" data-full="haldi.jpg" data-caption="Haldi glow"><img src="haldi.jpg" alt="Haldi ceremony" loading="lazy"><span>Haldi glow</span></button>
+                <button class="g-item" data-reveal="up" data-delay="180" data-full="assets/sangeet.jpg" data-caption="Sangeet lights"><img src="assets/sangeet.jpg" alt="Sangeet stage lights" loading="lazy"><span>Sangeet lights</span></button>
+                <button class="g-item" data-reveal="up" data-delay="120" data-full="assets/reception.jpg" data-caption="The reception stage"><img src="assets/reception.jpg" alt="Reception stage" loading="lazy"><span>Reception stage</span></button>
+                <button class="g-item g-tall" data-reveal="up" data-delay="180" data-full="invitation_card.jpg" data-caption="The invitation"><img src="invitation_card.jpg" alt="Invitation card" loading="lazy"><span>The invitation</span></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- VENUE -->
+    <section id="venue" class="sec-venue" data-nav="Venue">
+        <div class="container">
+            <p class="kicker" data-reveal="up">Reaching Us</p>
+            <h2 class="sec-title" data-split data-reveal="split">The Venue</h2>
+            <div class="divider" data-reveal="zoom"><svg><use href="#sym-paisley"/></svg></div>
+
+            <div class="venue-grid">
+                <div class="venue-map" data-reveal="left">
+                    <iframe title="Map to Taj Auditorium, Bengaluru" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.138760601332!2d75.3854157!3d12.0339999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba43e336e746d87%3A0xc68d4d1421f2d59!2sHajmus%20Auditorium!5e0!3m2!1sen!2sin!4v1715756000000!5m2!1sen!2sin" loading="lazy" allowfullscreen></iframe>
+                </div>
+                <div class="venue-info" data-reveal="right">
+                    <h3>Taj Auditorium</h3>
+                    <p class="venue-addr">Bengaluru, Karnataka, India</p>
+                    <ul class="venue-notes">
+                        <li><strong>By air</strong> — 40 min from Kempegowda Intl. Airport</li>
+                        <li><strong>By rail</strong> — 20 min from Bengaluru City Junction</li>
+                        <li><strong>Parking</strong> — valet at the main portico</li>
+                    </ul>
+                    <div class="venue-actions">
+                        <a class="btn-gold" href="https://maps.app.goo.gl/9Z4Xq" target="_blank" rel="noopener">Open in Maps</a>
+                        <button class="btn-line" id="ics-btn" type="button"><svg><use href="#i-cal"/></svg> Save the Date</button>
+                        <button class="btn-line" id="wa-btn" type="button"><svg><use href="#i-wa"/></svg> Share on WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="sec-rsvp" data-nav="RSVP">
+        <div class="container narrow">
+            <div class="rsvp-card" data-reveal="zoom">
+                <svg class="rsvp-mandala" aria-hidden="true"><use href="#sym-mandala"/></svg>
+                <p class="kicker" data-reveal="up">Pratyuttaram</p>
+                <h2 class="sec-title" data-split data-reveal="split">Will You Join Us?</h2>
+                <p class="sec-sub mask" data-reveal="mask"><span class="mask-inner">Your presence is our most treasured shagun.</span></p>
+
+                <form id="rsvp-form" novalidate>
+                    <div class="f-row">
+                        <div class="f-field">
+                            <label for="f-name">Your name</label>
+                            <input id="f-name" name="name" type="text" placeholder="e.g. Ananya Sharma" required autocomplete="name">
                         </div>
-                        
-                        <div class="rsvp-options">
-                            <label class="radio-card">
-                                <input type="radio" name="attendance" value="yes" required>
-                                <div class="card-inner-box">
-                                    <span class="option-icon">❤️</span>
-                                    <span class="option-text">Yes, I'll be there</span>
-                                </div>
-                            </label>
-                            <label class="radio-card">
-                                <input type="radio" name="attendance" value="no">
-                                <div class="card-inner-box">
-                                    <span class="option-icon">😔</span>
-                                    <span class="option-text">Sorry, I can't attend</span>
-                                </div>
-                            </label>
+                        <div class="f-field">
+                            <label for="f-guests">Guests</label>
+                            <select id="f-guests" name="guests">
+                                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                            </select>
                         </div>
-                        
-                        <button type="submit" class="btn-primary ripple-btn">
-                            <span>Send Wishes</span>
-                        </button>
-                    </form>
-                    
-                    <div id="rsvp-message" class="hidden">
-                        <div class="success-icon">✨</div>
-                        <h3 class="great-vibes gold-text">Thank You!</h3>
-                        <p id="msg-text"></p>
                     </div>
-                    <div class="rsvp-decor-bottom">❦</div>
+                    <div class="f-choice" role="radiogroup" aria-label="Attendance">
+                        <label class="choice">
+                            <input type="radio" name="attend" value="yes" checked>
+                            <span>🪔 Joyfully accepts</span>
+                        </label>
+                        <label class="choice">
+                            <input type="radio" name="attend" value="no">
+                            <span>🙏 Regretfully declines</span>
+                        </label>
+                    </div>
+                    <div class="f-field">
+                        <label for="f-msg">A blessing or wish <em>(optional)</em></label>
+                        <textarea id="f-msg" name="message" rows="3" placeholder="May your bond be blessed with a lifetime of love…"></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold wide">Send My Wishes ✦</button>
+                </form>
+
+                <div id="rsvp-success" class="hidden" tabindex="-1">
+                    <div class="success-diya"><svg><use href="#sym-diya"/></svg></div>
+                    <h3 class="script">Dhanyavaad!</h3>
+                    <p id="success-text"></p>
+                    <button class="btn-line" id="rsvp-again" type="button">Send another response</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Venue Section -->
-        <section id="venue">
-            <div class="container">
-                <h2 class="section-title gold-text" data-aos="fade-up">The Venue</h2>
-                <div class="venue-wrapper glass-card" data-aos="fade-up">
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.138760601332!2d75.3854157!3d12.0339999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba43e336e746d87%3A0xc68d4d1421f2d59!2sHajmus%20Auditorium!5e0!3m2!1sen!2sin!4v1715756000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <div class="venue-info">
-                        <h3>Taj Auditorium</h3>
-                        <p>Bangalore, Karnataka, India</p>
-                        <a href="https://maps.app.goo.gl/9Z4Xq" target="_blank" class="btn-primary">Open in Maps</a>
-                    </div>
-                </div>
+    <!-- BLESSINGS WALL -->
+    <section id="wishes" class="sec-wishes" data-nav="Blessings">
+        <div class="container">
+            <p class="kicker" data-reveal="up">Ashirvad</p>
+            <h2 class="sec-title" data-split data-reveal="split">The Blessings Wall</h2>
+            <div class="divider" data-reveal="zoom"><svg><use href="#sym-paisley"/></svg></div>
+            <p class="sec-sub" id="wishes-empty" data-reveal="up">Be the first to leave a blessing for the couple — it appears here, sealed in gold.</p>
+            <div class="wishes-wall" id="wishes-wall"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <svg class="footer-toran" aria-hidden="true" preserveAspectRatio="xMidYMin slice"><use href="#sym-toran"/></svg>
+        <div class="container footer-inner">
+            <div class="footer-mono" data-reveal="zoom">G<span class="amp">❤</span>B</div>
+            <p class="footer-line script" data-reveal="up">#GroomWedsBride</p>
+            <p class="footer-thanks mask" data-reveal="mask"><span class="mask-inner">Thank you for being part of our journey — your blessings complete our celebrations.</span></p>
+            <div class="footer-share" data-reveal="up">
+                <button id="wa-btn-2" class="btn-line" type="button"><svg><use href="#i-wa"/></svg> WhatsApp</button>
+                <button id="copy-btn" class="btn-line" type="button"><svg><use href="#i-link"/></svg> <span id="copy-label">Copy Link</span></button>
             </div>
-        </section>
+            <p class="copyright">© 2028 · Handcrafted with ❤️ and आशीर्वाद · Nadaswaram score retained with love</p>
+        </div>
+    </footer>
+</main>
 
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <h2 class="great-vibes gold-text">GROOM & BRIDE</h2>
-                <p>Thank you for being a part of our journey.</p>
-                <div class="social-links">
-                    <a href="#">#GroomWedsBride</a>
-                </div>
-                <p class="copyright">&copy; 2028 | Handcrafted with ❤️</p>
-            </div>
-        </footer>
+<!-- LIGHTBOX -->
+<div id="lightbox" class="hidden" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-close" aria-label="Close viewer">✕</button>
+    <button class="lb-prev" aria-label="Previous image">‹</button>
+    <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+    <button class="lb-next" aria-label="Next image">›</button>
+</div>
 
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="script.js?v=3.0"></script>
+<script src="script.js?v=6.0"></script>
 </body>
 </html>
